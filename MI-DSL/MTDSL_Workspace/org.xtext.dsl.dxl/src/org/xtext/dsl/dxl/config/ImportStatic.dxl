@@ -1,0 +1,101 @@
+
+/*************************************************************************************** 
+// Author Anisur Rahman 2012
+// - Automated version Based on initial version by Gunter Mussbacher, Bo Jiang
+// - prepares DOORS for import
+//	- makes sure that the selected folder has not been chosen by accident
+//	- makes sure that the required folder exists (sets global variable for the Folder)
+//	- makes sure that all modules are closed and no modules are deleted
+//	- removes all link modules
+//	- makes sure that all formal modules exist
+//	- opens all formal modules for editing (sets global variables based on DSL
+//     for example deviceModule, componentModule
+//	- creates all link modules (sets global variables for the link module)
+// - halts if an error occurs or the user chooses "Quit", otherwise returns true
+*/
+bool beginImport( string designName ) {
+	int initOK = 1
+	string buttons1[] = { "Update", "Quit" }, buttons2[] = { "Import", "Quit" }, buttons3[] = { "Ok" }
+	debug("Start Import\n", 1)
+	debug("Designname: " designName "\n",2)
+
+	// make sure that the UCM file is imported in the correct folder
+	//designName = designName ".ucm"
+	if( folder( designName ) )
+		initOK = messageBox( "Found MATCHING folder \"" designName "\"\n\nDo you want to update the modules in this folder?", buttons1, msgWarning )
+	else
+		initOK = messageBox( "The selected folder does not contain a folder \"" designName "\"\n\nDo you want to continue importing a new URN design?", buttons2, msgWarning )
+	if( initOK == 1 )
+		halt
+	debug("correct folder\n", 2)
+
+	// make sure the required folder exists
+	if( !( checkCreateFolder( designName, "Folder" ) ) ) {
+		messageBox( "The folder could not be created.\nImport of module cannot proceed.\n", buttons3, msgError )
+		halt
+	}
+	current = $$Folder$$
+	debug("Folder exists\n", 2)
+
+	// open all external modules for reading/editing
+	//if( !( openExternalModules() ) ) {
+	//	externalOK = messageBox( "One or both external modules (\"" fileNameExternal "\", \"" fileNameLinkUCMExt "\") could not be opened for reading or editing.\nImport of URN module can proceed but will not create external links.\n\nDo you want to continue with the import?", buttons2, msgWarning )
+	//}
+	//if( externalOK == 1 )
+	//	halt
+	// check if the external attribute exists (only needs to be performed if auto-completion of links can be done)
+	//if( externalOK == 2 ) {
+	//	if( !( checkExternalAttribute( externalLinkModule, attributeExternalLink ) ) ) {
+	//		externalOK = messageBox( "The external link module (\"" fileNameLinkUCMExt "\") does not have attribute \"" attributeExternalLink "\".\nImport of URN module can proceed but will not create external links.\n\nDo you want to continue with the import?", buttons2, msgWarning )
+	//	}
+	//	if( externalOK == 1 )
+	//		halt
+	//}
+	//debug("tried to open all external modules for reading/editing\n",3)
+
+	// make sure all formal and link modules are closed
+	if( !( saveCloseAllModules( $$Folder$$ ) ) ) {
+		messageBox( "The folder still contains one or more open modules.\nImport of module cannot proceed.\nPlease close all open modules and start the import again.", buttons3, msgError )
+		halt
+	}
+	debug("all modules closed\n",3)
+
+	// make sure a formal module has not been deleted
+	if( !( checkDeletedModules() ) ) {
+		messageBox( "One or more modules have been deleted.\nImport of module cannot proceed.\nPlease purge or undelete the deleted modules and start the import again.", buttons3, msgError )
+		halt
+	}
+	debug("no formal modules have been deleted\n", 3)
+
+	// remove all internal link modules
+	if( !( removeLinkModules() ) ) {
+		messageBox( "One or more URN link modules could not be removed.\nImport of module cannot proceed.\nPlease remove all link modules and start the import again.", buttons3, msgError )
+		halt
+	}
+	debug("removed all internal link modules\n", 3)
+
+	// make sure all required modules exist, the objects of an existing module are set to deleted and old,
+	// generated external links are removed
+	if( !( checkCreateModules() ) ) {
+		messageBox( "One or more URN modules could not be created.\nImport of module cannot proceed.\n", buttons3, msgError )
+		halt
+	}
+	debug("created all modules\n",3)
+
+	// open all modules for editing
+	if( !( openModules() ) ) {
+		messageBox( "One or more URN modules could not be opened for editing.\nImport of module cannot proceed.\n", buttons3, msgError )
+		halt
+	}
+	debug("opened all modules for editing\n", 3)
+
+	// create all link modules
+	if( !( checkCreateLinkModules() ) ) {
+		messageBox( "One or more URN link modules could not be created.\nImport of module cannot proceed.\n", buttons3, msgError )
+		halt
+	}
+	debug("created all link modules\n", 3)
+
+	return true
+}
+
