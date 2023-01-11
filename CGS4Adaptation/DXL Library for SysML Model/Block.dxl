@@ -1,0 +1,45 @@
+/*************************************************************************************** 
+// Author Anisur Rahman, Feb 2012
+// - Automated DXL generation Based on earlier version by Gunter Mussbacher
+*/
+
+/*************************************************************************************** 
+// Author Anisur Rahman, Feb 2012
+// - imports block (updates object if it exists otherwise creates new one)
+// - always returns true
+// - assumptions for this function
+//	- blockModule exists and is ready to be used
+*/ 
+
+
+bool block(string blockID, string blockName, string blockDescription, string blockType)
+{	 	
+	Object foundObject 
+	
+	foundObject = findObject( blockID, blockModule )	 
+	if ( null foundObject ) {
+		foundObject = createNewObject(blockModule ) 
+		foundObject."ID" = blockID		
+		foundObject."Object Heading" = blockName
+		foundObject."Name_" = blockName		
+		foundObject."Description_" = blockDescription 
+	 	foundObject."block Type" =  blockType
+	 	foundObject."New" = true
+		foundObject."Deleted" = false
+	 } else {		 		 	
+	 	if( foundObject."Name_" "" != blockName ) {
+	 		 foundObject."Object Heading" = blockName
+	 		 foundObject."Name_" = blockName 
+	 	}	
+	 	if( foundObject."Description_" "" != blockDescription )
+	 		foundObject."Description_" = blockDescription   
+		if( foundObject."block Type" "" !=  blockType  ) 
+			foundObject."block Type" = blockType	 	
+		foundObject."Deleted" = false
+	}
+	
+	debug("imported block " foundObject."ID" "\n",3)
+	return true
+	
+} 
+

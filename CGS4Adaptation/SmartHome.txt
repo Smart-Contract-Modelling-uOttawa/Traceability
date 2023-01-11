@@ -1,0 +1,170 @@
+#*  ****************************************** *#
+#*  Velocity template                          *#
+#* Author name: Amal Ahmed Anda                *#
+#*  ****************************************** *#
+#set($var1="#")
+$var1 include "addins/DSL/lib/Utilities.dxl"
+pragma runLim, 0
+beginImport("${project.name}")
+#*  Velocity template language *#
+#foreach ($diagram in $Diagram)
+//$diagram.diagramType
+#if($diagram.diagramType == "SysML Block Definition Diagram")
+blockDefinitionDiagram("$diagram.elementID","$diagram.name", "", "$diagram.image","$diagram.diagramType of Smart Home Case study" )
+#set($eList = $report.getDiagramElements($diagram))
+#foreach($e in $sorter.sort($eList,"elementType"))
+#if($e.elementType == "block" || $e.elementType == "constraintblock")
+blockToDiagram("$e.elementID$diagram.elementID","ContainedBy","","$e.elementID","$diagram.elementID")
+#end
+#end
+#else
+#if($diagram.diagramType == "Requirement Diagram")
+requirementsDiagram("$diagram.elementID","$diagram.name", "", "$diagram.image","diagram.diagramType of Smart Home Case study" )
+#set($rList = $report.getDiagramElements($diagram))
+#foreach($r in $sorter.sort($rList,"elementType"))
+#if($r.elementType == "requirement")
+requirementToDiagram("$r.elementID$diagram.elementID","ContainedBy","","$r.elementID","$diagram.elementID")
+#end
+#end
+#end
+#end
+#end
+//Blocks
+#foreach($e in $Block)
+block("$e.elementID","$e.name","$e.documentation","Block")
+#set($varlast= "")
+#foreach($Satss in $sorter.sort($report.filterElement($e.clientDependency, ["Satisfy"]),"supplier"))
+#set($s=$report.getSupplierElement($Satss))
+#if($varlast != $s.elementID)
+#set($varlast = $s.elementID)
+requirementToBlock("$Satss.elementID","SatisfiedBy","","$s.elementID","$e.elementID")
+#end
+#end
+
+#foreach($parttc in $sorter.sort($report.filterElement($e.ownedElement, ["Generalization"]),"general"))
+Blockparent("$parttc.elementID","ChildOf","","$e.elementID","$parttc.general.elementID")
+#end
+#set($varlast= "")
+#set($varlastnone= "")
+#foreach($parttr in $sorter.sort($report.filterElement($e.ownedAttribute, ["Reference Property"]),"type"))
+#if($parttr.Aggregation =="shared")
+#if($varlast != $parttr.type.elementID)
+#set($varlast = $parttr.type.elementID)
+Blockaggregation("$parttr.elementID","IsSharedBy","","$parttr.type.elementID","$e.elementID")
+#end
+#end
+#if($parttr.Aggregation =="none" && $varlastnone != $parttr.type.elementID)
+#set($varlastnone= $parttr.type.elementID) 
+blocklink("$parttr.elementID","$parttr.association.name","","$e.elementID","$parttr.type.elementID")
+#end
+#end
+#set($varlast= "")
+#foreach($parttc in $sorter.sort($report.filterElement($e.supplierDependency, ["Usage"]),"client"))
+#set($c=$report.getClientElement($parttc))
+#if($varlast != $c.elementID)
+#set($varlast = $c.elementID)
+BlockDependency("$parttc.elementID","DependOn","","$c.elementID","$e.elementID")
+#end
+#end
+
+#foreach($partt in $e.ownedAttribute)
+#if((! $report.isNull($partt.type)) && ($partt.Aggregation =="composite"))
+  blockparts("$partt.elementID","PartOf","","$partt.type.elementID","$e.elementID")
+#else 
+#if($partt.elementType=="partproperty")
+blockparts("$partt.elementID","PartOf","","$partt.elementID","$e.elementID")
+block("$partt.elementID","$partt.name","$partt.documentation","Block") 
+//nested part
+#set($varlast1= "")
+#foreach($Satss in $sorter.sort($report.filterElement($partt.clientDependency, ["Satisfy"]),"supplier"))
+#set($s=$report.getSupplierElement($Satss))
+#if($varlast1 != $s.elementID)
+#set($varlast1 = $s.elementID)
+requirementToBlock("$Satss.elementID","SatisfiedBy","","$s.elementID","$partt.elementID")
+#end
+#end
+
+#set($varlast1= "")
+#foreach($parttc in $sorter.sort($report.filterElement($partt.supplierDependency, ["Usage"]),"client"))
+#set($c=$report.getClientElement($parttc))
+#if($varlast1 != $c.elementID)
+#set($varlast1 = $c.elementID)
+BlockDependency("$parttc.elementID","DependOn","","$c.elementID","$partt.elementID")
+#end
+#end
+//End of nested parts
+#end
+#end
+#end
+#end
+// ConstraintBlock
+#foreach($e in $ConstraintBlock)
+block("$e.elementID","$e.name","$e.documentation","ConstraintBlock")
+#set($varlast= "")
+#foreach($Satss in $sorter.sort($report.filterElement($e.clientDependency, ["Satisfy"]),"supplier"))
+#set($s=$report.getSupplierElement($Satss))
+#if($varlast != $s.elementID)
+#set($varlast = $s.elementID)
+requirementToBlock("$Satss.elementID","SatisfiedBy","","$s.elementID","$e.elementID")
+#end
+#end
+
+#foreach($parttc in $sorter.sort($report.filterElement($e.ownedElement, ["Generalization"]),"general"))
+Blockparent("$parttc.elementID","ChildOf","","$e.elementID","$parttc.general.elementID")
+#end
+#set($varlast= "")
+#set($varlastnone= "")
+#foreach($parttr in $sorter.sort($report.filterElement($e.ownedAttribute, ["Reference Property"]),"type"))
+#if($parttr.Aggregation =="shared")
+#if($varlast != $parttr.type.elementID)
+#set($varlast = $parttr.type.elementID)
+Blockaggregation("$parttr.elementID","IsSharedBy","","$parttr.type.elementID","$e.elementID")
+#end
+#end
+#if($parttr.Aggregation =="none" && $varlastnone != $parttr.type.elementID)
+#set($varlastnone= $parttr.type.elementID) 
+blocklink("$parttr.elementID","$parttr.association.name","","$e.elementID","$parttr.type.elementID")
+#end
+#end
+#set($varlast= "")
+#foreach($parttc in $sorter.sort($report.filterElement($e.supplierDependency, ["Usage"]),"client"))
+#set($c=$report.getClientElement($parttc))
+#if($varlast != $c.elementID)
+#set($varlast = $c.elementID)
+BlockDependency("$parttc.elementID","DependOn","","$c.elementID","$e.elementID")
+#end
+#end
+#foreach($partt in $report.filterElement($e.ownedAttribute, ["Part Property"]))
+#if($partt.elementType=="partproperty")
+#if($report.isNull($partt.type))
+blockparts("$partt.elementID","PartOf","","$partt.elementID","$e.elementID") 
+block("$partt.elementID","$partt.name","$partt.documentation","Block")
+#else
+blockparts("$partt.elementID","PartOf","","$partt.type.elementID","$e.elementID")
+#end
+#end
+#end
+#end
+//Requirements
+#foreach($r in $Requirement)
+#if($r.elementType == "requirement")
+requirement("$r.elementID","$r.name","$r.text","$r.id")
+#foreach($con in $r.nestedClassifier)
+subrequirement("$con.elementID$r.elementID","ContainedBy","","$con.elementID","$r.elementID")
+#end
+#set($varlast= "")
+#foreach($parttc in $sorter.sort($report.filterElement($r.supplierDependency, ["DeriveReqt"]),"client"))
+#set($c=$report.getClientElement($parttc))
+#if($varlast != $c.elementID)
+#set($varlast = $c.elementID)
+requirementlink("$parttc.elementID","DerivedFrom","","$c.elementID","$r.elementID")
+#end
+#end
+
+#end
+#end
+
+
+
+endImport
+
