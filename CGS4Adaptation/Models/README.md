@@ -1,7 +1,7 @@
 # Smart Home Case Study Models
 This Contains three types of models:  
 
-## 1- [SysML Models](SysML/) 
+## 1- [SysML Models](SysML/README.md) 
 
    ### a- SysML Block Definition Diagram
    ### b- SysML Requirements Diagram
