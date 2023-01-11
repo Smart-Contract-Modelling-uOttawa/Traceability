@@ -1,7 +1,7 @@
 # Smart Home Case Study Models
 This Contains three types of models:  
 
-## 1- [SysML Models](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/tree/main/CGS4Adaptation/Models/SysML/README.MD) 
+## 1- [SysML Models](SysML/README.MD) 
 
    ### a- SysML Block Definition Diagram
    ### b- SysML Requirements Diagram
