@@ -1,0 +1,9 @@
+grammar org.xtext.dsl.dxl.DxlDsl with org.eclipse.xtext.common.Terminals
+
+generate dxlDsl "http://www.xtext.org/dsl/dxl/DxlDsl"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
