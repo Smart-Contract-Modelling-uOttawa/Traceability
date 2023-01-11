@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<bundle bundleID="717" localization="OSGI-INF/l10n/bundle" name="org.xtext.dsl.dxl.tests" project="org.xtext.dsl.dxl.tests" provider="My Company"/>
+	<bundle bundleID="716" localization="OSGI-INF/l10n/bundle" name="org.xtext.dsl.dxl" project="org.xtext.dsl.dxl" provider="My Company"/>
+	<bundle bundleID="718" class="org.xtext.dsl.dxl.ui.internal.DxlDslActivator" localization="OSGI-INF/l10n/bundle" name="org.xtext.dsl.dxl.ui" project="org.xtext.dsl.dxl.ui" provider="My Company"/>
+</map>
