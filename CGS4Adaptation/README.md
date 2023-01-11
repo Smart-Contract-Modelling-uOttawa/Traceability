@@ -10,7 +10,7 @@ We implemented this template to create a DSL descriptions that can be imported b
 We used MI-DSL language to define SysML classes. These classes descripe the SysML models and used to create the DXL Library to import SysML models in DOORS tool. This is introduced in Section 5.1.1 in the thesis.
 
 ## 3- [DXL Library](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/tree/main/CGS4Adaptation/DXL%20Library%20for%20SysML%20Model)
-## 4- [Models](Models/README.md)
+## 4- [Smart Home's Models](Models/README.md)
 This includes all the models of the smart home case study
 
 
