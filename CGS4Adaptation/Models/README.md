@@ -7,5 +7,5 @@ This Contains three types of models:
    ### b- SysML Requirements Diagram
    
 ## 2- Goal Oriented Models
-   ### a- [GRL Diagram](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/tree/main/CGS4Adaptation/Models/GRL/README.MD)
-## 3- [Feature Diagram](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/tree/main/CGS4Adaptation/Models/Feature/README.MD)
+   ### a- [GRL Diagram](GRL/README.MD)
+## 3- [Feature Diagram](Feature/README.MD)
