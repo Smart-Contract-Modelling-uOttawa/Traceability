@@ -1,5 +1,5 @@
 # Traceability Support Files
-Contain four parts:
+This contain four parts:
 
 
 ## 1- Report Generation Velocity Template [VTLTemplate.txt](SmartHome.txt)
