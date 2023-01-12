@@ -1,0 +1,481 @@
+/***************************************************************************************
+// Author Anisur Rahman 2012
+// - Automated version Based on initial version by Gunter Mussbacher, Bo Jiang
+// - provides services for initialization and exit of applications
+*/
+
+
+
+/***************************************************************************************
+//Author Anisur Rahman, 2012
+// - Automated version Based on initial version by Gunter Mussbacher, Bo Jiang
+//- checks if the UCM folder exists, and creates the folder if it does not exist
+//- returns true if folder was found or created successfully, false if it still does not exist
+*/
+bool checkCreateFolder( string name, string description ) {
+	bool createOK = false
+	if( folder( name ) ) 
+		SysML = folder( name )
+	else
+		SysML = create( name, description )
+	if( folder( name ) )
+		createOK = true
+	return createOK
+}
+
+
+/***************************************************************************************
+//Author Anisur Rahman, 2012
+// - Automated version Based on initial version by Gunter Mussbacher, Bo Jiang
+//- saves and closes all open modules in a folder
+//- returns false if a module remains open, true if all modules are closed
+*/
+bool saveCloseAllModules( Folder theFolder ) {
+	Module currentModule
+	bool allClosed = true
+
+	// loops through all OPEN modules in a folder
+	for currentModule in theFolder do {
+		save currentModule
+		close( currentModule, true )
+	}
+	for currentModule in theFolder do {
+		allClosed = false
+		break
+	}
+	return allClosed
+}
+/***************************************************************************************
+//Author Anisur Rahman, 2012
+// - Automated version Based on initial version by Gunter Mussbacher, Bo Jiang
+//- checks whether one of the UCM modules has been deleted
+//- returns true if modules are not deleted, false if one of the modules is deleted
+*/
+bool checkDeletedModules() {
+	bool checkOK = true
+
+	if ( exists module fileNameRequirementsDiagrams ) {
+		if (isDeleted item( fileNameRequirementsDiagrams )){
+			checkOK = false
+		}
+	}
+
+	if ( exists module fileNameRequirements ) {
+		if (isDeleted item( fileNameRequirements )){
+			checkOK = false
+		}
+	}
+
+	if ( exists module fileNameRequirementlinks ) {
+		if (isDeleted item( fileNameRequirementlinks )){
+			checkOK = false
+		}
+	}
+
+	if ( exists module fileNameBlockDefinitionDiagrams ) {
+		if (isDeleted item( fileNameBlockDefinitionDiagrams )){
+			checkOK = false
+		}
+	}
+
+	if ( exists module fileNameBlocks ) {
+		if (isDeleted item( fileNameBlocks )){
+			checkOK = false
+		}
+	}
+
+	if ( exists module fileNameBlocklinks ) {
+		if (isDeleted item( fileNameBlocklinks )){
+			checkOK = false
+		}
+	}
+
+	return checkOK
+}
+/***************************************************************************************
+//Author Anisur Rahman, 2012
+// - Automated version Based on initial version by Gunter Mussbacher, Bo Jiang
+//- removes module
+//- returns true if module was removed, false if it still exists
+*/
+
+bool removeModule( string name ) {
+	bool removeOK = true
+	if( exists module name ) {
+		delete item name
+		purge item name
+	}
+	if( exists module name )
+		removeOK = false
+	return removeOK
+}
+
+/***************************************************************************************
+//Author Anisur Rahman, 2012
+// - Automated version Based on initial version by Gunter Mussbacher, Bo Jiang
+//- removes all UCM link modules
+//- returns true if modules were removed, false if one of the modules still exists
+*/
+bool removeLinkModules() {
+	bool removeOK = true
+
+	removeOK = removeModule( fileNameLinkDerivedFrom )
+	if( removeOK ) {
+		removeOK = removeModule( fileNameLinkSatisfiedBy )
+		if( removeOK ) {
+			removeOK = removeModule( fileNameLinkPartOf )
+			if( removeOK ) {
+				removeOK = removeModule( fileNameLinkIsSharedBy )
+				if( removeOK ) {
+					removeOK = removeModule( fileNameLinkDependency )
+					if( removeOK ) {
+						removeOK = removeModule( fileNameLinkRefersTo )
+						if( removeOK ) {
+							removeOK = removeModule( fileNameLinkChildOf )
+							if( removeOK ) {
+								removeOK = removeModule( fileNameLinkContainedBy )
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	return removeOK
+}
+
+/***************************************************************************************
+//Author Anisur Rahman, 2012
+// - Automated version Based on initial version by Gunter Mussbacher, Bo Jiang
+//- checks if module exists
+//	- if yes all objects of the module are set to deleted and to old
+//	- if no the module is created, views and linksets are also created at this time
+//- the following modules are created with this function
+//	- Devices, Components, Responsibilities, Maps, Scenarios
+//- assumptions for this function
+//	- if it is okay to do auto-completion of links, then externalLinkModule has been defined
+//- returns true if module was found or created successfully, false if it still does not exist
+*/
+bool checkCreateModule( string theName ) {
+	Link l
+	bool createOK = false, b
+
+	if( exists module theName ) {
+		currentModule = edit( theName, false )
+		for currentObject in currentModule do {
+			currentObject."Deleted" = true
+			currentObject."New" = false
+		}
+		save currentModule
+		close( currentModule, false )
+	}
+	else {
+		// last parameter needs to be true because otherwise views cannot be created
+		currentModule = create( theName, theName, "0", 1, true)
+
+		current = currentModule
+
+		if( theName == fileNameRequirementsDiagrams ) {
+			create object type "String" (default "No content") attribute "ID" 
+			create object type "String" (default "No content") attribute "Name_" 
+			create object type "String" (default "") attribute "Description_" 
+			create object type "String" (default "No content") attribute "Diagram File Name" 
+			create object type "String" (default "No content") attribute "Diagram Title" 
+			create object type "String" date false history false changeBars false (default "") attribute "ObjectType_" 
+
+			// internal attributes
+			create object type "Text" date false history false changeBars false (default "No content") attribute "Suspect In Links" 
+			create object type "Text" date false history false changeBars false (default "No content") attribute "Suspect Out Links"
+			create object type "Boolean" date false history false changeBars false (default "false") attribute "New"
+			create object type "Boolean" date false history false changeBars false (default "false") attribute "Deleted"
+		}
+
+		if( theName == fileNameRequirements ) {
+			create object type "String" (default "No content") attribute "ID" 
+			create object type "String" (default "No content") attribute "Name_" 
+			create object type "String" (default "") attribute "Description_" 
+			create object type "String" (default "No content") attribute "ReqID" 
+
+			// internal attributes
+			create object type "Text" date false history false changeBars false (default "No content") attribute "Suspect In Links" 
+			create object type "Text" date false history false changeBars false (default "No content") attribute "Suspect Out Links"
+			create object type "Boolean" date false history false changeBars false (default "false") attribute "New"
+			create object type "Boolean" date false history false changeBars false (default "false") attribute "Deleted"
+		}
+
+		if( theName == fileNameRequirementlinks ) {
+			create object type "String" (default "No content") attribute "ID" 
+			create object type "String" (default "No content") attribute "Name_" 
+			create object type "String" (default "") attribute "Description_" 
+			create object type "String" (default "No content") attribute "Source ID" 
+			create object type "String" (default "No content") attribute "Destination ID" 
+			create object type "String" date false history false changeBars false (default "") attribute "ObjectType_" 
+
+			// internal attributes
+			create object type "Text" date false history false changeBars false (default "No content") attribute "Suspect In Links" 
+			create object type "Text" date false history false changeBars false (default "No content") attribute "Suspect Out Links"
+			create object type "Boolean" date false history false changeBars false (default "false") attribute "New"
+			create object type "Boolean" date false history false changeBars false (default "false") attribute "Deleted"
+		}
+
+		if( theName == fileNameBlockDefinitionDiagrams ) {
+			create object type "String" (default "No content") attribute "ID" 
+			create object type "String" (default "No content") attribute "Name_" 
+			create object type "String" (default "") attribute "Description_" 
+			create object type "String" (default "No content") attribute "Diagram File Name" 
+			create object type "String" (default "No content") attribute "Diagram Title" 
+			create object type "String" date false history false changeBars false (default "") attribute "ObjectType_" 
+
+			// internal attributes
+			create object type "Text" date false history false changeBars false (default "No content") attribute "Suspect In Links" 
+			create object type "Text" date false history false changeBars false (default "No content") attribute "Suspect Out Links"
+			create object type "Boolean" date false history false changeBars false (default "false") attribute "New"
+			create object type "Boolean" date false history false changeBars false (default "false") attribute "Deleted"
+		}
+
+		if( theName == fileNameBlocks ) {
+			create object type "String" (default "No content") attribute "ID" 
+			create object type "String" (default "No content") attribute "Name_" 
+			create object type "String" (default "") attribute "Description_" 
+
+			// internal attributes
+			create object type "Text" date false history false changeBars false (default "No content") attribute "Suspect In Links" 
+			create object type "Text" date false history false changeBars false (default "No content") attribute "Suspect Out Links"
+			create object type "Boolean" date false history false changeBars false (default "false") attribute "New"
+			create object type "Boolean" date false history false changeBars false (default "false") attribute "Deleted"
+		}
+
+		if( theName == fileNameBlocklinks ) {
+			create object type "String" (default "No content") attribute "ID" 
+			create object type "String" (default "No content") attribute "Name_" 
+			create object type "String" (default "") attribute "Description_" 
+			create object type "String" (default "No content") attribute "Source ID" 
+			create object type "String" (default "No content") attribute "Destination ID" 
+			create object type "String" date false history false changeBars false (default "") attribute "ObjectType_" 
+
+			// internal attributes
+			create object type "Text" date false history false changeBars false (default "No content") attribute "Suspect In Links" 
+			create object type "Text" date false history false changeBars false (default "No content") attribute "Suspect Out Links"
+			create object type "Boolean" date false history false changeBars false (default "false") attribute "New"
+			create object type "Boolean" date false history false changeBars false (default "false") attribute "Deleted"
+		}
+		save currentModule
+		close( currentModule, false )
+	}
+	if( exists module theName )
+		createOK = true
+	return createOK
+}
+/***************************************************************************************
+//Author Anisur Rahman, 2012
+// - Automated version Based on initial version by Gunter Mussbacher, Bo Jiang
+//- checks if all UCM modules exist, and creates them if not
+//- returns true if all modules were found or created successfully, false if one module still does not exist
+*/
+bool checkCreateModules() {
+	bool createOK = true
+
+	if( createOK ) {
+		if (!checkCreateModule( fileNameRequirementsDiagrams )){
+			createOK = false
+		}
+	}
+	if( createOK ) {
+		if (!checkCreateModule( fileNameRequirements )){
+			createOK = false
+		}
+	}
+	if( createOK ) {
+		if (!checkCreateModule( fileNameRequirementlinks )){
+			createOK = false
+		}
+	}
+	if( createOK ) {
+		if (!checkCreateModule( fileNameBlockDefinitionDiagrams )){
+			createOK = false
+		}
+	}
+	if( createOK ) {
+		if (!checkCreateModule( fileNameBlocks )){
+			createOK = false
+		}
+	}
+	if( createOK ) {
+		if (!checkCreateModule( fileNameBlocklinks )){
+			createOK = false
+		}
+	}
+	return createOK
+}
+
+
+/***************************************************************************************
+//Author Anisur Rahman, 2012
+// - Automated version Based on initial version by Gunter Mussbacher
+//- checks if all  link modules exists, creates them if not, and opens them for editing
+//- returns true if successful, otherwise returns false
+//- assumptions for this function
+//	- the folder variable is set to current folder
+*/
+bool checkCreateLinkModules() {
+	Module currentModule
+
+	bool derivedFromOK = false
+	bool satisfiedByOK = false
+	bool partOfOK = false
+	bool IsSharedByOK = false
+	bool DependencyOK = false
+	bool refersToOK = false
+	bool childOfOK = false
+	bool containedByOK = false
+
+	if ( !( exists module fileNameLinkDerivedFrom ) ) {
+		current = create( fileNameLinkDerivedFrom, "fileNameLinkDerivedFrom", manyToMany, false )
+	}
+	derivedFromModule = edit( fileNameLinkDerivedFrom, false )
+
+	if ( !( exists module fileNameLinkSatisfiedBy ) ) {
+		current = create( fileNameLinkSatisfiedBy, "fileNameLinkSatisfiedBy", manyToMany, false )
+	}
+	satisfiedByModule = edit( fileNameLinkSatisfiedBy, false )
+
+	if ( !( exists module fileNameLinkPartOf ) ) {
+		current = create( fileNameLinkPartOf, "fileNameLinkPartOf", manyToMany, false )
+	}
+	partOfModule = edit( fileNameLinkPartOf, false )
+
+	if ( !( exists module fileNameLinkIsSharedBy ) ) {
+		current = create( fileNameLinkIsSharedBy, "fileNameLinkIsSharedBy", manyToMany, false )
+	}
+	IsSharedByModule = edit( fileNameLinkIsSharedBy, false )
+
+	if ( !( exists module fileNameLinkDependency ) ) {
+		current = create( fileNameLinkDependency, "fileNameLinkDependency", manyToMany, false )
+	}
+	DependencyModule = edit( fileNameLinkDependency, false )
+
+	if ( !( exists module fileNameLinkRefersTo ) ) {
+		current = create( fileNameLinkRefersTo, "fileNameLinkRefersTo", manyToMany, false )
+	}
+	refersToModule = edit( fileNameLinkRefersTo, false )
+
+	if ( !( exists module fileNameLinkChildOf ) ) {
+		current = create( fileNameLinkChildOf, "fileNameLinkChildOf", manyToMany, false )
+	}
+	childOfModule = edit( fileNameLinkChildOf, false )
+
+	if ( !( exists module fileNameLinkContainedBy ) ) {
+		current = create( fileNameLinkContainedBy, "fileNameLinkContainedBy", manyToMany, false )
+	}
+	containedByModule = edit( fileNameLinkContainedBy, false )
+
+
+	for currentModule in current Folder do {
+		if( isEdit( currentModule ) ) {
+			if( currentModule."Name" "" == fileNameLinkDerivedFrom )
+				derivedFromOK = true
+			if( currentModule."Name" "" == fileNameLinkSatisfiedBy )
+				satisfiedByOK = true
+			if( currentModule."Name" "" == fileNameLinkPartOf )
+				partOfOK = true
+			if( currentModule."Name" "" == fileNameLinkIsSharedBy )
+				IsSharedByOK = true
+			if( currentModule."Name" "" == fileNameLinkDependency )
+				DependencyOK = true
+			if( currentModule."Name" "" == fileNameLinkRefersTo )
+				refersToOK = true
+			if( currentModule."Name" "" == fileNameLinkChildOf )
+				childOfOK = true
+			if( currentModule."Name" "" == fileNameLinkContainedBy )
+				containedByOK = true
+		}
+	}
+	return ( derivedFromOK && satisfiedByOK && partOfOK && IsSharedByOK && DependencyOK && refersToOK && childOfOK && containedByOK)
+}
+
+/***************************************************************************************
+//Author Anisur Rahman, 2012
+// - Automated version Based on initial version by Gunter Mussbacher
+//- opens all  modules in the folder for editing
+//- assumptions for this function
+//	- current folder is the folder variable for the folder
+//- returns true if successful, otherwise returns false
+*/
+bool openModules() {
+	Module currentModule
+
+	bool preparationOKRequirementsDiagram = false
+	requirementsDiagramModule = edit( fileNameRequirementsDiagrams, false )
+
+	bool preparationOKRequirement = false
+	requirementModule = edit( fileNameRequirements, false )
+
+	bool preparationOKRequirementlink = false
+	requirementlinkModule = edit( fileNameRequirementlinks, false )
+
+	bool preparationOKBlockDefinitionDiagram = false
+	blockDefinitionDiagramModule = edit( fileNameBlockDefinitionDiagrams, false )
+
+	bool preparationOKBlock = false
+	blockModule = edit( fileNameBlocks, false )
+
+	bool preparationOKBlocklink = false
+	blocklinkModule = edit( fileNameBlocklinks, false )
+
+
+	for currentModule in SysML do {
+		if( isEdit( currentModule ) ) {
+			if( currentModule."Name" "" == fileNameRequirementsDiagrams )
+				preparationOKRequirementsDiagram = true
+			if( currentModule."Name" "" == fileNameRequirements )
+				preparationOKRequirement = true
+			if( currentModule."Name" "" == fileNameRequirementlinks )
+				preparationOKRequirementlink = true
+			if( currentModule."Name" "" == fileNameBlockDefinitionDiagrams )
+				preparationOKBlockDefinitionDiagram = true
+			if( currentModule."Name" "" == fileNameBlocks )
+				preparationOKBlock = true
+			if( currentModule."Name" "" == fileNameBlocklinks )
+				preparationOKBlocklink = true
+		}
+	}
+	return ( preparationOKRequirementsDiagram && preparationOKRequirement && preparationOKRequirementlink && preparationOKBlockDefinitionDiagram && 
+		preparationOKBlock && preparationOKBlocklink ) 
+}
+/***************************************************************************************
+//Author Anisur Rahman, 2012
+// - Automated version Based on initial version by Gunter Mussbacher
+//- checks whether program was started from a Module
+//- sets global variable for the Folder and the current folder to the folder variable
+//- returns true if successful, otherwise halts
+*/
+bool checkStartedFromModule( string programName ) {
+	string buttons[] = { "Ok" } 
+	string n
+
+	if( !( null( current Module ) ) ) {
+		debug(name( current Module ) "\n", 2)
+		n = name( current Module )
+		if( ( n != fileNameRequirementsDiagrams ) &&  ( n != fileNameRequirements ) &&  ( n != fileNameRequirementlinks ) &&  ( n != fileNameBlockDefinitionDiagrams )  && 
+			 ( n != fileNameBlocks ) &&  ( n != fileNameBlocklinks ) ) {
+			messageBox( programName " must be started from a URN module.\nPlease select a URN module and start " programName " again.\n", buttons, msgError )
+			halt
+		}
+	}
+	else {
+		messageBox( programName " must be started from a module.\nPlease select a module and start " programName " again.\n", buttons, msgError )
+		halt
+	}	
+	return true
+}
+/***************************************************************************************
+//Author Anisur Rahman, 2012
+// - Automated version Based on initial version by Gunter Mussbacher
+//- saves and closes all modules
+//- returns true if successful, otherwise returns false
+*/
+bool saveCloseFinal() {
+	bool finalOK = false
+	finalOK = saveCloseAllModules( SysML )
+	return finalOK
+}

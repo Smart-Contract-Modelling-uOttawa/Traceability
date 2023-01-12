@@ -1,0 +1,63 @@
+/*************************************************************************************** 
+// Author Anisur Rahman, Feb 2012
+// - Automated DXL generation Based on earlier version by Gunter Mussbacher
+*/
+
+/*************************************************************************************** 
+// Author Anisur Rahman, Feb 2012
+// - imports blockDefinitionDiagram (updates object if it exists otherwise creates new one)
+// - always returns true
+// - assumptions for this function
+//	- blockDefinitionDiagramModule exists and is ready to be used
+*/ 
+
+Object currentBlockDefinitionDiagramObject
+
+bool blockDefinitionDiagram(string blockDefinitionDiagramID, string blockDefinitionDiagramName, string blockDefinitionDiagramDescription, string blockDefinitionDiagramGraphFileName, 
+	string blockDefinitionDiagramTitle)
+{	 	
+	Object foundObject, lastBlockDefinitionDiagramObject 
+	
+	foundObject = findObject( blockDefinitionDiagramID, blockDefinitionDiagramModule )	 
+	if ( null foundObject ) {
+		// cannot assume that the current module is  blockDefinitionDiagramModule, needs to be set explicitly
+		current = blockDefinitionDiagramModule
+		// the picture needs to be inserted first, if another attribute is assigned before
+		// that the picture cannot be added anymore
+		if( null( last blockDefinitionDiagramModule ) ) 
+			insertPictureFileAfter( blockDefinitionDiagramGraphFileName, formatBMP, null )
+		else { 
+		  lastBlockDefinitionDiagramObject = findAncestorOfType( "blockDefinitionDiagram", last blockDefinitionDiagramModule )
+			insertPictureFileAfter( blockDefinitionDiagramGraphFileName, formatBMP, lastBlockDefinitionDiagramObject )
+		}
+		foundObject = last blockDefinitionDiagramModule
+		foundObject."ID" = blockDefinitionDiagramID		
+		foundObject."Object Heading" = blockDefinitionDiagramName
+		foundObject."Name_" = blockDefinitionDiagramName
+		foundObject."ObjectType_" = "blockDefinitionDiagram"		
+		foundObject."Description_" = blockDefinitionDiagramDescription 
+	 	foundObject."Diagram File Name" =  blockDefinitionDiagramGraphFileName
+	 	foundObject."Diagram Title" =  blockDefinitionDiagramTitle
+	 	foundObject."New" = true
+		foundObject."Deleted" = false
+	 } else {		 		 	
+	 	if( foundObject."Name_" "" != blockDefinitionDiagramName ) {
+	 		 foundObject."Object Heading" = blockDefinitionDiagramName
+	 		 foundObject."Name_" = blockDefinitionDiagramName 
+	 	}	
+	 	if( foundObject."Description_" "" != blockDefinitionDiagramDescription )
+	 		foundObject."Description_" = blockDefinitionDiagramDescription   
+		if( foundObject."Diagram File Name" "" !=  blockDefinitionDiagramGraphFileName  ) 
+			foundObject."Diagram File Name" = blockDefinitionDiagramGraphFileName	 	
+		if( foundObject."Diagram Title" "" !=  blockDefinitionDiagramTitle  ) 
+			foundObject."Diagram Title" = blockDefinitionDiagramTitle	 	
+		 	insertPictureFile( blockDefinitionDiagramGraphFileName, formatBMP, foundObject )
+		foundObject."Deleted" = false
+	}
+	
+	currentBlockDefinitionDiagramObject = foundObject 
+	debug("imported blockDefinitionDiagram " foundObject."ID" "\n",3)
+	return true
+	
+} 
+
