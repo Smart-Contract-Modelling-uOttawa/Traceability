@@ -1,0 +1,21 @@
+
+
+/***************************************************************************************
+// Generated version
+// Author Anisur Rahman, Aug 2012
+// Based on version by Gunter Mussbacher & initial version by Bo Jiang
+*/
+
+#include "addins/DSL/lib/Global.dxl"
+#include "addins/DSL/lib/ModuleUtilities.dxl"
+#include "addins/DSL/lib/InitExit.dxl"
+#include "addins/DSL/lib/RequirementsDiagram.dxl"
+#include "addins/DSL/lib/Requirement.dxl"
+#include "addins/DSL/lib/Requirementlink.dxl"
+#include "addins/DSL/lib/BlockDefinitionDiagram.dxl"
+#include "addins/DSL/lib/Block.dxl"
+#include "addins/DSL/lib/Blocklink.dxl"
+#include "addins/DSL/lib/Report.dxl"
+#include "addins/DSL/lib/Links.dxl"
+#include "addins/DSL/lib/Import.dxl"
+

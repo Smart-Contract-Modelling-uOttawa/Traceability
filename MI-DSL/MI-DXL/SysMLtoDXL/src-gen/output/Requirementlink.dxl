@@ -1,0 +1,164 @@
+/*************************************************************************************** 
+// Author Anisur Rahman, Feb 2012
+// - Automated DXL generation Based on earlier version by Gunter Mussbacher
+*/
+
+/*************************************************************************************** 
+// Author Anisur Rahman, Feb 2012
+// - imports requirementlink (updates object if it exists otherwise creates new one)
+// - always returns true
+// - assumptions for this function
+//	- requirementlinkModule exists and is ready to be used
+*/ 
+
+
+bool requirementlink(string requirementlinkID, string requirementlinkName, string requirementlinkDescription, string requirementlinkSourceID, 
+	string requirementlinkDestinationID)
+{	 	
+	Object foundObject 
+	
+	foundObject = findObject( requirementlinkID, requirementlinkModule )	 
+	if ( null foundObject ) {
+		foundObject = createNewObject(requirementlinkModule ) 
+		foundObject."ID" = requirementlinkID		
+		foundObject."Object Heading" = requirementlinkName
+		foundObject."Name_" = requirementlinkName
+		foundObject."ObjectType_" = "requirementlink"		
+		foundObject."Description_" = requirementlinkDescription 
+	 	foundObject."Source ID" =  requirementlinkSourceID
+	 	foundObject."Destination ID" =  requirementlinkDestinationID
+	 	foundObject."New" = true
+		foundObject."Deleted" = false
+	 } else {		 		 	
+	 	if( foundObject."Name_" "" != requirementlinkName ) {
+	 		 foundObject."Object Heading" = requirementlinkName
+	 		 foundObject."Name_" = requirementlinkName 
+	 	}	
+	 	if( foundObject."Description_" "" != requirementlinkDescription )
+	 		foundObject."Description_" = requirementlinkDescription   
+		if( foundObject."Source ID" "" !=  requirementlinkSourceID  ) 
+			foundObject."Source ID" = requirementlinkSourceID	 	
+		if( foundObject."Destination ID" "" !=  requirementlinkDestinationID  ) 
+			foundObject."Destination ID" = requirementlinkDestinationID	 	
+		foundObject."Deleted" = false
+	}
+	
+	debug("imported requirementlink " foundObject."ID" "\n",3)
+	return true
+	
+} 
+
+
+
+bool requirementToBlock(string requirementToBlockID, string requirementToBlockName, string requirementToBlockDescription, string requirementToBlockSourceID, 
+	string requirementToBlockDestinationID)
+{	 	
+	Object foundObject 
+	
+	foundObject = findObject( requirementToBlockID, requirementlinkModule )	 
+	if ( null foundObject ) {
+		foundObject = createNewObject(requirementlinkModule ) 
+		foundObject."ID" = requirementToBlockID		
+		foundObject."Object Heading" = requirementToBlockName
+		foundObject."Name_" = requirementToBlockName
+		foundObject."ObjectType_" = "requirementToBlock"		
+		foundObject."Description_" = requirementToBlockDescription 
+	 	foundObject."Source ID" =  requirementToBlockSourceID
+	 	foundObject."Destination ID" =  requirementToBlockDestinationID
+	 	foundObject."New" = true
+		foundObject."Deleted" = false
+	 } else {		 		 	
+	 	if( foundObject."Name_" "" != requirementToBlockName ) {
+	 		 foundObject."Object Heading" = requirementToBlockName
+	 		 foundObject."Name_" = requirementToBlockName 
+	 	}	
+	 	if( foundObject."Description_" "" != requirementToBlockDescription )
+	 		foundObject."Description_" = requirementToBlockDescription   
+		if( foundObject."Source ID" "" !=  requirementToBlockSourceID  ) 
+			foundObject."Source ID" = requirementToBlockSourceID	 	
+		if( foundObject."Destination ID" "" !=  requirementToBlockDestinationID  ) 
+			foundObject."Destination ID" = requirementToBlockDestinationID	 	
+		foundObject."Deleted" = false
+	}
+	
+	debug("imported requirementToBlock " foundObject."ID" "\n",3)
+	return true
+	
+} 
+
+
+
+bool subrequirement(string subrequirementID, string subrequirementName, string subrequirementDescription, string subrequirementSourceID, 
+	string subrequirementDestinationID)
+{	 	
+	Object foundObject 
+	
+	foundObject = findObject( subrequirementID, requirementlinkModule )	 
+	if ( null foundObject ) {
+		foundObject = createNewObject(requirementlinkModule ) 
+		foundObject."ID" = subrequirementID		
+		foundObject."Object Heading" = subrequirementName
+		foundObject."Name_" = subrequirementName
+		foundObject."ObjectType_" = "subrequirement"		
+		foundObject."Description_" = subrequirementDescription 
+	 	foundObject."Source ID" =  subrequirementSourceID
+	 	foundObject."Destination ID" =  subrequirementDestinationID
+	 	foundObject."New" = true
+		foundObject."Deleted" = false
+	 } else {		 		 	
+	 	if( foundObject."Name_" "" != subrequirementName ) {
+	 		 foundObject."Object Heading" = subrequirementName
+	 		 foundObject."Name_" = subrequirementName 
+	 	}	
+	 	if( foundObject."Description_" "" != subrequirementDescription )
+	 		foundObject."Description_" = subrequirementDescription   
+		if( foundObject."Source ID" "" !=  subrequirementSourceID  ) 
+			foundObject."Source ID" = subrequirementSourceID	 	
+		if( foundObject."Destination ID" "" !=  subrequirementDestinationID  ) 
+			foundObject."Destination ID" = subrequirementDestinationID	 	
+		foundObject."Deleted" = false
+	}
+	
+	debug("imported subrequirement " foundObject."ID" "\n",3)
+	return true
+	
+} 
+
+
+
+bool requirementToDiagram(string requirementToDiagramID, string requirementToDiagramName, string requirementToDiagramDescription, string requirementToDiagramSourceID, 
+	string requirementToDiagramDestinationID)
+{	 	
+	Object foundObject 
+	
+	foundObject = findObject( requirementToDiagramID, requirementlinkModule )	 
+	if ( null foundObject ) {
+		foundObject = createNewObject(requirementlinkModule ) 
+		foundObject."ID" = requirementToDiagramID		
+		foundObject."Object Heading" = requirementToDiagramName
+		foundObject."Name_" = requirementToDiagramName
+		foundObject."ObjectType_" = "requirementToDiagram"		
+		foundObject."Description_" = requirementToDiagramDescription 
+	 	foundObject."Source ID" =  requirementToDiagramSourceID
+	 	foundObject."Destination ID" =  requirementToDiagramDestinationID
+	 	foundObject."New" = true
+		foundObject."Deleted" = false
+	 } else {		 		 	
+	 	if( foundObject."Name_" "" != requirementToDiagramName ) {
+	 		 foundObject."Object Heading" = requirementToDiagramName
+	 		 foundObject."Name_" = requirementToDiagramName 
+	 	}	
+	 	if( foundObject."Description_" "" != requirementToDiagramDescription )
+	 		foundObject."Description_" = requirementToDiagramDescription   
+		if( foundObject."Source ID" "" !=  requirementToDiagramSourceID  ) 
+			foundObject."Source ID" = requirementToDiagramSourceID	 	
+		if( foundObject."Destination ID" "" !=  requirementToDiagramDestinationID  ) 
+			foundObject."Destination ID" = requirementToDiagramDestinationID	 	
+		foundObject."Deleted" = false
+	}
+	
+	debug("imported requirementToDiagram " foundObject."ID" "\n",3)
+	return true
+	
+} 
+

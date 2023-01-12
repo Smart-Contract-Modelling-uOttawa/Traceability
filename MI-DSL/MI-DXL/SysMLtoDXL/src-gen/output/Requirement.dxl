@@ -1,0 +1,45 @@
+/*************************************************************************************** 
+// Author Anisur Rahman, Feb 2012
+// - Automated DXL generation Based on earlier version by Gunter Mussbacher
+*/
+
+/*************************************************************************************** 
+// Author Anisur Rahman, Feb 2012
+// - imports requirement (updates object if it exists otherwise creates new one)
+// - always returns true
+// - assumptions for this function
+//	- requirementModule exists and is ready to be used
+*/ 
+
+
+bool requirement(string requirementID, string requirementName, string requirementDescription, string requirementReqID)
+{	 	
+	Object foundObject 
+	
+	foundObject = findObject( requirementID, requirementModule )	 
+	if ( null foundObject ) {
+		foundObject = createNewObject(requirementModule ) 
+		foundObject."ID" = requirementID		
+		foundObject."Object Heading" = requirementName
+		foundObject."Name_" = requirementName		
+		foundObject."Description_" = requirementDescription 
+	 	foundObject."ReqID" =  requirementReqID
+	 	foundObject."New" = true
+		foundObject."Deleted" = false
+	 } else {		 		 	
+	 	if( foundObject."Name_" "" != requirementName ) {
+	 		 foundObject."Object Heading" = requirementName
+	 		 foundObject."Name_" = requirementName 
+	 	}	
+	 	if( foundObject."Description_" "" != requirementDescription )
+	 		foundObject."Description_" = requirementDescription   
+		if( foundObject."ReqID" "" !=  requirementReqID  ) 
+			foundObject."ReqID" = requirementReqID	 	
+		foundObject."Deleted" = false
+	}
+	
+	debug("imported requirement " foundObject."ID" "\n",3)
+	return true
+	
+} 
+
