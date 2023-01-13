@@ -3,5 +3,5 @@ Includes all the files of the Xtext-based Model Import Domain Specific Language(
 
 The compact version of the editor is provided in the MI-DXL.rar archive while a tutorial showing how to create classes and create the corresponding DXL library is supplied in [Report(XinyuZhao)](Tutorial/Report(XinyuZhao).pdf)
 
-# [Tutorial Folder](/Tutorial)
+# [Tutorial Folder](Tutorial/)
 Contains the tutorial [Report(XinyuZhao)](Tutorial/Report(XinyuZhao).pdf) and the related models and results. 
