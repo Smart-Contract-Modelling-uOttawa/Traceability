@@ -1,5 +1,5 @@
 
-# [Tutorial Folder]
+# This Tutorial 
 Contains a tutorial [Report(XinyuZhao)](/Report(XinyuZhao).pdf) that illustrates how to write MT-DSL classes and generate the DXL descriptions. 
 
 #### 1- Two MT-DSL models will be presented with short explanations [MT-DSL](MT-DSL/).
