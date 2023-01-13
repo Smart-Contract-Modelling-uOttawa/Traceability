@@ -1,0 +1,46 @@
+﻿#include "addins/dsl/lib//Utilities.dxl"
+pragma runLim, 0
+
+beginImport( "HelloWorld" )
+
+actor( "27", "Vendor", "" )
+actor( "29", "Customer", "" )
+actor( "31", "Database", "" )
+
+component( "39", "Customer", "", "Team" )
+component( "41", "Vendor", "", "Team" )
+component( "45", "Database", "", "Team" )
+
+responsibility( "288", "Check Availability", "" )
+responsibility( "294", "Provide Information of Items", "" )
+responsibility( "298", "Provide Items", "" )
+
+intentionalElement( "21", "Provide Info", "" )
+intentionalElement( "23", "Sell", "" )
+intentionalElement( "25", "Buy", "" )
+
+contribution("34", "Contribution34", "", "contribution", "Help", 25,"0", "23", "25" )
+contribution("37", "Contribution37", "", "contribution", "Help", 25,"0", "21", "23" )
+
+grldiagram( "2", "GRLGraph2", "", "D:/Study/Winter 2014/Project/Report/0506 Improvement/AoURN Export/new-GRLGraph2-GRLGraph2.bmp", "GRLGraph2", "", "" )
+   actorRef( "28", "ActorRef28", 529,50,150,118,"27" )
+   actorRef( "30", "ActorRef30", 145,-87,140,126,"29" )
+   actorRef( "32", "ActorRef32", 220,167,149,115,"31" )
+   intentionalElementRef( "22", "Provide Info", "", 238,197,"32", "21" )
+   intentionalElementRef( "24", "Sell", "", 557,87,"28", "23" )
+   intentionalElementRef( "26", "Buy", "", 160,-50,"30", "25" )
+
+
+map( "3", "UCMmap3", "", "D:/Study/Winter 2014/Project/Report/0506 Improvement/AoURN Export/new-Map3-UCMmap3.bmp", "UCMmap3")
+    respRef( "289", "Check Availability", "", 485,205,"42", "288" )
+   respRef( "295", "Provide Information of Items", "", 758,285,"46", "294" )
+   respRef( "299", "Provide Items", "", 516,299,"42", "298" )
+   compRef( "40", "Customer", 126,152,222,211,"39", "" )
+   compRef( "42", "Vendor", 421,149,214,213,"41", "" )
+   compRef( "46", "Database", 737,150,206,215,"45", "" )
+   startPoint( "58", "Order Items", "" )
+   endPoint( "60", "Out of Stock", "" )
+   endPoint( "283", "", "" )
+
+
+endImport

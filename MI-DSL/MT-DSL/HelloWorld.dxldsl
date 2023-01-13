@@ -1,0 +1,130 @@
+model jUCMNav{
+
+	folder jUCMNav{		
+	
+		
+		module responsibility{
+			//default name, id, description			
+			class responsibility{					
+			}			
+		}	
+		
+
+		module ignoreInReport actor{
+			class actor{
+
+			}
+		}	
+		
+		module ignoreInReport intentionalElement{			
+			class intentionalElement{	
+
+			}			
+		}
+		module map{		
+			class map{		
+				diagram "graphFileName"	shows as "Map File Name"	
+				string "title" shows as	"Map Title"	
+			}	
+			
+			class respRef{
+				int "Fx"
+				int "Fy"
+				string "enclosingComponent" shows as "Enclosing Component"
+				string "referenceID" shows as "Definition ID"				
+				association respID1 : references to "responsibility" "Definition ID"	
+				association respID2 : boundto to "map"."compRef" "Enclosing Component"	
+				association respID3 : refines to "map"."map"	
+			}
+					
+			class noDescription compRef{
+				int "Fx"
+				int "Fy"
+				int "Width"	
+			    int "Height"	
+				string "referenceComponent" shows as "Definition ID"
+				string "parentComponent" shows as "Parent Component"				
+
+				association compID2 : boundto to "map"."compRef" "Parent Component"
+				association compID3 : refines	to "map"."map"
+			}
+ 
+			class noDescription stub{								
+				string "stubType" shows as "Stub Type"					
+				association stubID1 : refines to "map"."map"				
+			}					
+			
+			 class startPoint{
+	             association spAsso1 : refines to "map"."map"
+             }
+             
+             class endPoint{
+	             association epAsso1 : refines to "map"."map"
+             }
+		}
+		
+		module component{				
+			class component{		
+				string "Type" shows as "Type"	
+			}			
+		}		
+		module contribution{
+			class contribution{
+				string "Type"
+			    string "contribution type" shows as "Contribution Type"
+				int "contribution quantitative" shows as "Contribution Quantitative"
+				string "Correlation"
+				string "sourceID" shows as "Source ID"
+				string "destinationID" shows as "Destination ID"	
+
+				association contributionAsso1 : refines to "intentionalElement"."intentionalElement" "source ID"
+				association contributionAsso2 : refines to "intentionalElement"."intentionalElement" "destination ID"	
+			}			
+		}
+		
+		module ignoreInReport grlDiagram{	
+			fileName "GRL Diagrams"	
+							
+			class grldiagram shows as "grl diagram"{		
+				diagram "graphFileName"	shows as "Diagram File Name"	
+				string "title" shows as	"Diagram Title"	
+				string "concernID" shows as "ConcernID"
+				string "concernName" shows as "ConcernName"
+
+			}	
+			
+		
+			class noDescription actorRef{		
+				int "Fx"
+				int "Fy"
+				int "Width"
+				int "Height"				
+				string "referenceActor" shows as "Definition ID" 		
+												
+				association actorRef1 : references to "actor" "Definition ID"
+				association actorRef3 : refines to "grlDiagram"."grldiagram" 	
+			}
+			
+			class intentionalElementRef{
+				int "Fx"
+				int "Fy"
+				string "enclosingActor" shows as "Enclosing Actor"
+				string "defID" shows as "Definition ID"
+				
+				association ieAsso1 : references to "intentionalElement" "Definition ID"
+				association ieAsso2 : boundto to "grlDiagram"."actorRef" "Enclosing Actor"
+				association ieAsso3 : refines to "grlDiagram"."grldiagram" 
+			}						
+		}		
+
+		
+
+ 
+		associationType concerns "In Concerns"
+		associationType requests "Requests"
+		associationType references "References"	
+		associationType refines "Refines"
+		associationType boundto "Bound To"
+	
+	}	
+}
