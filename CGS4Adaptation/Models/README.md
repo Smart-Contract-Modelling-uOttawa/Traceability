@@ -6,6 +6,6 @@ This Contains three types of models:
    ### a- SysML Block Definition Diagram
    ### b- SysML Requirements Diagram
    
-## 2- [Goal Oriented Language (GRL) Models](GRL/)
+## 2- [Goal-oriented Requirement Language (GRL) Model](GRL/)
     
-## 3- [Feature Diagram](Feature/)
+## 3- [Feature Diagrams (Part of GRL Model)](Feature/)
