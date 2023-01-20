@@ -2,7 +2,7 @@
 This contain four parts:
 
 
-## 1- Report Generation Velocity Template [VTLTemplate.txt](SmartHome.txt)
+## 1- Report Generation Velocity Template [VTLTemplate.txt](VTLTemplate.txt)
 This is the report generation template that reads block definition and requirements diagrams in SysML model created by Cameo Systems Modeler. 
 We implemented this template to create a DSL descriptions that can be imported by DOORS using DXL library.    
 
