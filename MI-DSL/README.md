@@ -25,7 +25,7 @@ Please follow the instructions below.
 
 #How to use
 - In the new opened Eclipse window create a new project then create a new file with `.dxldsl` extension. 
-![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Symboleo-IDE/blob/master/images/p3.png "Run as Eclipse aplication")
+
 
 
 
