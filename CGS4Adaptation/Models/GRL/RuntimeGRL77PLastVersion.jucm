@@ -1,0 +1,1250 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<urn:URNspec xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fm="http:///fm.ecore" xmlns:grl="http:///grl.ecore" xmlns:grl.kpimodel="http:///grl/kpimodel.ecore" xmlns:urn="http:///urn.ecore" name="URNspec" author="User" created="August 6, 2019 at 1:30:56 AM EDT" modified="October 13, 2019 at 7:44:25 PM EDT" specVersion="335" urnVersion="1.27" nextGlobalID="6783">
+  <ucmspec>
+    <scenarioGroups name="ScenarioGroup6" id="6">
+      <scenarios name="ScenarioDef7" id="7"/>
+    </scenarioGroups>
+  </ucmspec>
+  <grlspec>
+    <intElements name="Minimize consumption" id="18" linksDest="4113 5076 5410 5411 5412 6446 6775" importance="Low" importanceQuantitative="15" refs="55 5401"/>
+    <intElements name="Manage energy" id="45" linksDest="2236 2446 3045" linksSrc="2940" type="Goal" decompositionType="Or" refs="46"/>
+    <intElements name="Manage appliances" id="49" linksDest="4464 4465 4466 4467" linksSrc="4438" type="Goal" decompositionType="Or" refs="50"/>
+    <intElements name="Wind turbins" id="69" linksDest="6473" linksSrc="2236 2747 2857" type="Task" refs="70 1707"/>
+    <intElements name="Off heater" id="93" linksSrc="5100 5197" type="Task" refs="2832 2848"/>
+    <intElements name="On heater" fromLinks="//@urnLinks.0 //@urnLinks.3" toLinks="//@urnLinks.4" id="95" linksDest="4263 4264 5254 6366" linksSrc="5099 5157" type="Task" decompositionType="Or" refs="96 2844"/>
+    <intElements name="Off dish washer" id="124" linksSrc="4466 6614" type="Task" refs="125 1103"/>
+    <intElements name="On dish washer" id="126" linksDest="4476 4489" linksSrc="4464 6615" type="Task" refs="127 1250"/>
+    <intElements name="Maximize energy production" id="176" linksDest="2747 3049" importance="Low" importanceQuantitative="15" refs="177"/>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Wind speed" id="687" description="" linksSrc="6473" type="Indicator" refs="688" targetValue="10.0" thresholdValue="9.99" worstValue="3.5" unit="m/s">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Electricity price" id="701" description="" linksSrc="4476" type="Indicator" refs="702" targetValue="6.4" thresholdValue="9.4" worstValue="13.4" unit="CAD/KWH">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="fm:Feature" name="Dish washer controller" id="1408" linksDest="6614 6615" linksSrc="3973" type="Task" decompositionType="Xor" refs="1409"/>
+    <intElements xsi:type="fm:Feature" name="Air conditioner controller" id="1420" linksDest="5370 5374 5420" linksSrc="3971" type="Task" refs="1421"/>
+    <intElements xsi:type="fm:Feature" name="Power controller" id="1424" linksDest="2500 2857 3055" linksSrc="3899" type="Task" decompositionType="Or" refs="1425"/>
+    <intElements xsi:type="fm:Feature" name="SmartHome" id="1428" linksDest="3899 3904 3966 5469 5989 6310" type="Task" refs="1429"/>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Light" id="1971" description="" linksSrc="3047" type="Indicator" refs="1972" targetValue="100.0" thresholdValue="99.0">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements name="Smart grid" id="2194" linksSrc="2446 2500" type="Task" refs="2195 2497"/>
+    <intElements xsi:type="fm:Feature" name="Heater controller" id="2839" linksDest="5383 5385 5422" linksSrc="3972" type="Task" refs="2840"/>
+    <intElements name="Manage home" id="2933" linksDest="2940 3143 4438 4587 5665" type="Goal" importance="High" importanceQuantitative="100" refs="2934"/>
+    <intElements name="Solar panel" id="3041" linksDest="3047" linksSrc="3045 3049 3055" type="Task" refs="3042 3052"/>
+    <intElements name="Provid services" id="3105" linksDest="3138 3139 5301 5302 5303 5437 5438 5439 6346" linksSrc="3143" type="Goal" decompositionType="Or" refs="3106 5392"/>
+    <intElements name="Wi-Fi" id="3109" linksSrc="3138 3904" type="Task" refs="3110 3790 5395"/>
+    <intElements name="Internet" toLinks="//@urnLinks.5 //@urnLinks.6 //@urnLinks.7 //@urnLinks.8" id="3111" linksDest="5526 5556" linksSrc="3139 5074 5076 5360 5814 5992" type="Task" refs="3112 3792 5396"/>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Response time" id="3135" description="" linksSrc="5556" type="Indicator" refs="5398" targetValue="1.0" thresholdValue="1.99" worstValue="2.0">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements name="Open windows" id="3145" linksDest="5352 5353 6369 6386" linksSrc="4113 5034 5216 6773" type="Task" refs="3299 3148"/>
+    <intElements name="On air conditioner" fromLinks="//@urnLinks.1 //@urnLinks.2 //@urnLinks.4" id="3167" linksDest="4255 4256 5253 6328" linksSrc="5095 5155" type="Task" decompositionType="Or" refs="3168 888"/>
+    <intElements name="Off air conditioner" id="3169" linksSrc="5094 5196" type="Task" refs="3170 1170"/>
+    <intElements xsi:type="fm:Feature" name="Close windows" toLinks="//@urnLinks.0 //@urnLinks.1" id="3298" linksSrc="5033 5195" type="Task" refs="3297 4984" selectable="true"/>
+    <intElements xsi:type="fm:Feature" name="Water heater controller" id="3307" linksDest="5387 6486 6487" linksSrc="3967" type="Task" refs="3308"/>
+    <intElements xsi:type="fm:Feature" name="On water heater" id="3309" linksDest="4265 4272" linksSrc="4465 5088" type="Task" decompositionType="Or" refs="3310 4071" selectable="true"/>
+    <intElements xsi:type="fm:Feature" name="Off Water heater" id="3311" linksSrc="4467 5089" type="Task" refs="3312 4075" selectable="true"/>
+    <intElements xsi:type="fm:Feature" name="Air ventilator controller" id="3378" linksDest="3389 3390" linksSrc="3969" type="Task" decompositionType="Xor" refs="3379"/>
+    <intElements xsi:type="fm:Feature" name="On air ventilator" id="3380" linksDest="6475" linksSrc="3389 5217 5424 6775" type="Task" refs="3381 3935" selectable="true"/>
+    <intElements xsi:type="fm:Feature" name="Off air ventilator" toLinks="//@urnLinks.2 //@urnLinks.3" id="3382" linksSrc="3390 5194" type="Task" refs="3383 3933" selectable="true"/>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Suitable weather" id="3431" description="" linksSrc="5352" type="Indicator" refs="3432" targetValue="100.0" thresholdValue="99.99">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements name="Maximize privacy" id="3722" linksDest="5360 5407 5408 5409 5424 6773" importance="Low" importanceQuantitative="25" refs="3723 5399"/>
+    <intElements name="Maximize comfort" id="3724" linksDest="5074 5414 5415 5416 5804 5838 6447" importance="Low" importanceQuantitative="15" refs="3725 5400 5698"/>
+    <intElements xsi:type="fm:Feature" name="Smart appliances controller" id="3962" linksDest="3967 3969 3971 3972 3973 5036" linksSrc="3966" type="Task" refs="3963"/>
+    <intElements name="Normalize inside temperature" id="3975" linksDest="5145 5198" linksSrc="4587" type="Goal" decompositionType="Or" refs="3976"/>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Heating time" id="4175" description="" linksDest="5462" linksSrc="4264" type="Indicator" refs="4176 5454" targetValue="100.0" thresholdValue="99.99">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Heating water time" id="4186" description="" linksDest="5463" linksSrc="4272" type="Indicator" refs="4187 5447" targetValue="100.0" thresholdValue="99.99">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Cooling time" id="4197" description="" linksDest="5461" linksSrc="4256" type="Indicator" refs="4198 5453" targetValue="100.0" thresholdValue="99.99">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Remote cooling" id="4229" description="" linksDest="5457" linksSrc="4255" type="Indicator" refs="4230 5452" targetValue="100.0" thresholdValue="99.99">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Remote  heating" id="4240" description="" linksDest="5458" linksSrc="4263" type="Indicator" refs="4241 5455" targetValue="100.0" thresholdValue="99.9">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Remote water heating" id="4251" description="" linksDest="5456" linksSrc="4265" type="Indicator" refs="4252 5446" targetValue="100.0" thresholdValue="99.99">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Full" id="4486" description="" linksDest="5807" linksSrc="4489" type="Indicator" refs="4487 5806" targetValue="100.0" thresholdValue="99.99">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="fm:Feature" name="Windows controller" id="5029" linksDest="5033 5034" linksSrc="5036" type="Task" decompositionType="Xor" refs="5030"/>
+    <intElements xsi:type="fm:Feature" name="Air conditioner schedule" id="5046" linksDest="6562" linksSrc="5302 5409 5412 5414 5420 5461" type="Task" refs="5047 5290 5393" selectable="true"/>
+    <intElements xsi:type="fm:Feature" name="Water heater schedule" id="5053" linksDest="6575" linksSrc="5303 5407 5410 5416 5463 6487" type="Task" refs="5054 5298 5394" selectable="true"/>
+    <intElements xsi:type="fm:Feature" name="Heater schedule" id="5055" linksDest="6549" linksSrc="5301 5408 5411 5415 5422 5462" type="Task" refs="5056 5294 5397" selectable="true"/>
+    <intElements xsi:type="fm:Feature" name="Heater switch" id="5078" linksDest="5099 5100" linksSrc="5383" type="Task" decompositionType="Xor" refs="5079"/>
+    <intElements xsi:type="fm:Feature" name="Water heater switch" id="5080" linksDest="5088 5089" linksSrc="5387" type="Task" decompositionType="Xor" refs="5081"/>
+    <intElements xsi:type="fm:Feature" name="Air conditioner switch" id="5082" linksDest="5094 5095" linksSrc="5370" type="Task" decompositionType="Xor" refs="5083"/>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="High temperature" id="5111" description="" linksDest="5818" linksSrc="5253" type="Indicator" refs="5237 5816" targetValue="10.0" thresholdValue="10.99" worstValue="11.0">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements name="Normalize" id="5141" linksDest="5155 5157" linksSrc="5145" type="Goal" decompositionType="Xor" refs="5142"/>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Smoke detection" id="4528" description="" linksDest="5882" linksSrc="6475" type="Indicator" refs="4529 5866" targetValue="100.0" thresholdValue="99.99">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements name="Operate related tasks" id="5190" linksDest="5194 5195 5196 5197 5221" linksSrc="5198" type="Goal" decompositionType="Or" refs="5191"/>
+    <intElements name="Refresh inside air" id="5212" linksDest="5216 5217" linksSrc="5221" type="Goal" decompositionType="Or" refs="5213"/>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Low temperature" id="5236" description="" linksDest="5819" linksSrc="5254" type="Indicator" refs="5112 5817" targetValue="27.0" thresholdValue="26.99" worstValue="26.98">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="User permission" id="5349" description="" linksSrc="5353" type="Indicator" refs="5350" thresholdValue="10.0" worstValue="20.0">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="fm:Feature" name="Air conditioner remote access" fromLinks="//@urnLinks.6" id="5362" linksDest="6510" linksSrc="5374 5439 5457" type="Task" refs="5363 5430" selectable="true"/>
+    <intElements xsi:type="fm:Feature" name="Water heater remote access" fromLinks="//@urnLinks.5" id="5376" linksDest="6498" linksSrc="5437 5456 6486" type="Task" refs="5377 5434" selectable="true"/>
+    <intElements xsi:type="fm:Feature" name="Heater remote access" fromLinks="//@urnLinks.7" id="5378" linksDest="6524" linksSrc="5385 5438 5458" type="Task" refs="5379 5432" selectable="true"/>
+    <intElements xsi:type="fm:Feature" name="Sensors" id="5465" linksDest="5491 5918 6233 6245 6257" linksSrc="5469" type="Task" refs="5466"/>
+    <intElements xsi:type="fm:Feature" name="Motion sensors" id="5471" linksSrc="5925 6726" type="Task" refs="5472 5706" selectable="true"/>
+    <intElements xsi:type="fm:Feature" name="Light sensors" id="5473" linksSrc="5491 5733" type="Task" refs="5474 5710"/>
+    <intElements xsi:type="fm:Feature" name="Smoke detector" id="5475" linksSrc="5879 5882 6245" type="Task" refs="5476 5874"/>
+    <intElements xsi:type="fm:Feature" name="Smart security camera" id="5477" linksSrc="5924 5927" type="Task" refs="5478 5704" selectable="true"/>
+    <intElements xsi:type="fm:Feature" name="Wind sensors" id="5481" linksSrc="5735 6257" type="Task" refs="5482 5712"/>
+    <intElements xsi:type="fm:Feature" name="Smart temperature sensors" id="5485" linksDest="6769 6771" linksSrc="6233" type="Task" decompositionType="Xor" refs="5486"/>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="No suspicious behaviour detected" id="5516" description="" linksDest="5912" linksSrc="5526 6369" type="Indicator" refs="5517 5721 6368" thresholdValue="10.0" worstValue="20.0">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements name="Monitor the environment" id="5661" linksDest="5733 5735 5750 5798 5879 5910" linksSrc="5665" type="Goal" refs="5662 5696"/>
+    <intElements name="Set thermostate" id="5743" linksDest="5835 5836" linksSrc="5750 5818 5819" type="Goal" decompositionType="Or" refs="5744"/>
+    <intElements name="Infrared sensor" id="5773" linksSrc="5798 5807" type="Task" refs="5774"/>
+    <intElements name="Cyber attack detection" id="5782" linksSrc="5930 5991" type="Task" refs="5783 5982"/>
+    <intElements name="Maximize security" id="5790" linksDest="5814 5840 6444" linksSrc="5804" importance="Low" importanceQuantitative="30" refs="5791 5801"/>
+    <intElements name="Temperature setting" id="5822" linksSrc="5835 5840 6769" type="Task" refs="5823 5849"/>
+    <intElements name="Temperature remote access" fromLinks="//@urnLinks.8" id="5826" linksDest="6747" linksSrc="5836 5838 6771" type="Task" refs="5827 5845"/>
+    <intElements name="Detect suspicious behaviour" id="5902" linksDest="5927 5930 6726" linksSrc="5910 5912 6444" type="Goal" decompositionType="Or" refs="5903"/>
+    <intElements xsi:type="fm:Feature" name="Security sensor" id="5914" linksDest="5924 5925" linksSrc="5918" type="Task" decompositionType="Or" refs="5915"/>
+    <intElements xsi:type="fm:Feature" name="Internet connection" id="5985" linksDest="5991 5992" linksSrc="5989" type="Task" refs="5986"/>
+    <intElements xsi:type="fm:Feature" name="Learning technique" id="6306" linksSrc="6310 6346 6348 6371 6446 6447" type="Task" refs="6307 6331" selectable="true"/>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Cooling habits" id="6325" description="" linksDest="6348" linksSrc="6328" type="Indicator" refs="6326" thresholdValue="10.0" worstValue="20.0">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Heating habits" id="6363" description="" linksDest="6371" linksSrc="6366" type="Indicator" refs="6364" thresholdValue="10.0" worstValue="20.0">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Fire" id="6383" description="" linksSrc="6386" type="Indicator" refs="6384" targetValue="1.0" thresholdValue="1.0">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Enable water heater access" id="6495" description="" linksSrc="6498" type="Indicator" refs="6496" targetValue="5.0" thresholdValue="10.0" worstValue="15.0">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Enable air conditioner access" id="6507" description="" linksSrc="6510" type="Indicator" refs="6508" targetValue="5.0" thresholdValue="10.0" worstValue="15.0">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Enable heater access" id="6519" description="" linksSrc="6524" type="Indicator" refs="6520" targetValue="5.0" thresholdValue="10.0" worstValue="15.0">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Enable heater schedule" id="6546" description="" linksSrc="6549" type="Indicator" refs="6547" thresholdValue="0.01" worstValue="1.0">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Enable air conditioner schedule" id="6559" description="" linksSrc="6562" type="Indicator" refs="6560" thresholdValue="0.01" worstValue="1.0">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Enable water heater schedule" id="6572" description="" linksSrc="6575" type="Indicator" refs="6573" thresholdValue="0.01" worstValue="1.0">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <intElements xsi:type="grl.kpimodel:Indicator" name="Enable temperature access" id="6744" description="" linksSrc="6747" type="Indicator" refs="6745" thresholdValue="0.01" worstValue="1.0">
+      <metadata name="_addAggregate" value="disable"/>
+    </intElements>
+    <actors name="Inhabitant" id="25" contRefs="26 5402 5702" importance="Medium" importanceQuantitative="50"/>
+    <actors name="SmartHomeSystem" id="1516" contRefs="3003 5403 5701" importance="Medium" importanceQuantitative="50"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition2236" id="2236" refs="//@urndef/@specDiagrams.0/@connections.0" dest="45" src="69"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition2446" id="2446" refs="//@urndef/@specDiagrams.0/@connections.1" dest="45" src="2194"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition2500" id="2500" refs="//@urndef/@specDiagrams.3/@connections.0" dest="1424" src="2194"/>
+    <links xsi:type="grl:Contribution" name="Contribution2747" id="2747" refs="//@urndef/@specDiagrams.0/@connections.2" dest="176" src="69" contribution="Make" quantitativeContribution="100"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition2857" id="2857" refs="//@urndef/@specDiagrams.3/@connections.1" dest="1424" src="69"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition2940" id="2940" refs="//@urndef/@specDiagrams.0/@connections.3" dest="2933" src="45"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition3045" id="3045" refs="//@urndef/@specDiagrams.0/@connections.4" dest="45" src="3041"/>
+    <links xsi:type="grl:Contribution" name="Contribution3047" id="3047" refs="//@urndef/@specDiagrams.0/@connections.5" dest="3041" src="1971" contribution="Make" quantitativeContribution="100"/>
+    <links xsi:type="grl:Contribution" name="Contribution3049" id="3049" refs="//@urndef/@specDiagrams.0/@connections.6" dest="176" src="3041" contribution="Make" quantitativeContribution="100"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition3055" id="3055" refs="//@urndef/@specDiagrams.3/@connections.2" dest="1424" src="3041"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition3138" id="3138" refs="//@urndef/@specDiagrams.0/@connections.7 //@urndef/@specDiagrams.1/@connections.2" dest="3105" src="3109"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition3139" id="3139" refs="//@urndef/@specDiagrams.0/@connections.8 //@urndef/@specDiagrams.1/@connections.3" dest="3105" src="3111"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition3143" id="3143" refs="//@urndef/@specDiagrams.0/@connections.9" dest="2933" src="3105"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition3389" id="3389" refs="//@urndef/@specDiagrams.3/@connections.3" dest="3378" src="3380"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition3390" id="3390" refs="//@urndef/@specDiagrams.3/@connections.4" dest="3378" src="3382"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory3899" id="3899" refs="//@urndef/@specDiagrams.3/@connections.5" dest="1428" src="1424"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory3904" id="3904" refs="//@urndef/@specDiagrams.3/@connections.6" dest="1428" src="3109"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory3966" id="3966" refs="//@urndef/@specDiagrams.3/@connections.7" dest="1428" src="3962"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory3967" id="3967" refs="//@urndef/@specDiagrams.3/@connections.8" dest="3962" src="3307"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory3969" id="3969" refs="//@urndef/@specDiagrams.3/@connections.9" dest="3962" src="3378"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory3971" id="3971" refs="//@urndef/@specDiagrams.3/@connections.10" dest="3962" src="1420"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory3972" id="3972" refs="//@urndef/@specDiagrams.3/@connections.11" dest="3962" src="2839"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory3973" id="3973" refs="//@urndef/@specDiagrams.3/@connections.12" dest="3962" src="1408"/>
+    <links xsi:type="grl:Contribution" name="Contribution4113" id="4113" refs="//@urndef/@specDiagrams.0/@connections.10" dest="18" src="3145"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition4255" id="4255" refs="//@urndef/@specDiagrams.0/@connections.11" dest="3167" src="4229"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition4256" id="4256" refs="//@urndef/@specDiagrams.0/@connections.12" dest="3167" src="4197"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition4263" id="4263" refs="//@urndef/@specDiagrams.0/@connections.13" dest="95" src="4240"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition4264" id="4264" refs="//@urndef/@specDiagrams.0/@connections.14" dest="95" src="4175"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition4265" id="4265" refs="//@urndef/@specDiagrams.0/@connections.15" dest="3309" src="4251"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition4272" id="4272" refs="//@urndef/@specDiagrams.0/@connections.16" dest="3309" src="4186"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition4438" id="4438" refs="//@urndef/@specDiagrams.0/@connections.17" dest="2933" src="49"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition4464" id="4464" refs="//@urndef/@specDiagrams.0/@connections.18" dest="49" src="126"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition4465" id="4465" refs="//@urndef/@specDiagrams.0/@connections.19" dest="49" src="3309"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition4466" id="4466" refs="//@urndef/@specDiagrams.0/@connections.20" dest="49" src="124"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition4467" id="4467" refs="//@urndef/@specDiagrams.0/@connections.21" dest="49" src="3311"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition4476" id="4476" refs="//@urndef/@specDiagrams.0/@connections.22" dest="126" src="701"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition4489" id="4489" refs="//@urndef/@specDiagrams.0/@connections.23" dest="126" src="4486"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition4587" id="4587" refs="//@urndef/@specDiagrams.0/@connections.24" dest="2933" src="3975"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5033" id="5033" refs="//@urndef/@specDiagrams.3/@connections.13" dest="5029" src="3298"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5034" id="5034" refs="//@urndef/@specDiagrams.3/@connections.14" dest="5029" src="3145"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory5036" id="5036" refs="//@urndef/@specDiagrams.3/@connections.15" dest="3962" src="5029"/>
+    <links xsi:type="grl:Contribution" name="Contribution5074" id="5074" refs="//@urndef/@specDiagrams.1/@connections.6" dest="3724" src="3111" contribution="SomePositive" quantitativeContribution="50"/>
+    <links xsi:type="grl:Contribution" name="Contribution5076" id="5076" refs="//@urndef/@specDiagrams.1/@connections.7" dest="18" src="3111" contribution="SomePositive" quantitativeContribution="50"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5088" id="5088" refs="//@urndef/@specDiagrams.3/@connections.16" dest="5080" src="3309"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5089" id="5089" refs="//@urndef/@specDiagrams.3/@connections.17" dest="5080" src="3311"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5094" id="5094" refs="//@urndef/@specDiagrams.3/@connections.18" dest="5082" src="3169"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5095" id="5095" refs="//@urndef/@specDiagrams.3/@connections.19" dest="5082" src="3167"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5099" id="5099" refs="//@urndef/@specDiagrams.3/@connections.20" dest="5078" src="95"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5100" id="5100" refs="//@urndef/@specDiagrams.3/@connections.21" dest="5078" src="93"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5145" id="5145" refs="//@urndef/@specDiagrams.0/@connections.25" dest="3975" src="5141"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5155" id="5155" refs="//@urndef/@specDiagrams.0/@connections.26" dest="5141" src="3167"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5157" id="5157" refs="//@urndef/@specDiagrams.0/@connections.27" dest="5141" src="95"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5194" id="5194" refs="//@urndef/@specDiagrams.0/@connections.28" dest="5190" src="3382"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5195" id="5195" refs="//@urndef/@specDiagrams.0/@connections.29" dest="5190" src="3298"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5196" id="5196" refs="//@urndef/@specDiagrams.0/@connections.30" dest="5190" src="3169"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5197" id="5197" refs="//@urndef/@specDiagrams.0/@connections.31" dest="5190" src="93"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5198" id="5198" refs="//@urndef/@specDiagrams.0/@connections.32" dest="3975" src="5190"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5216" id="5216" refs="//@urndef/@specDiagrams.0/@connections.33" dest="5212" src="3145"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5217" id="5217" refs="//@urndef/@specDiagrams.0/@connections.34" dest="5212" src="3380"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5221" id="5221" refs="//@urndef/@specDiagrams.0/@connections.35" dest="5190" src="5212"/>
+    <links xsi:type="grl:Dependency" name="Dependency5253" id="5253" refs="//@urndef/@specDiagrams.0/@connections.36" dest="3167" src="5111"/>
+    <links xsi:type="grl:Dependency" name="Dependency5254" id="5254" refs="//@urndef/@specDiagrams.0/@connections.37" dest="95" src="5236"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5301" id="5301" refs="//@urndef/@specDiagrams.0/@connections.38 //@urndef/@specDiagrams.1/@connections.4" dest="3105" src="5055"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5302" id="5302" refs="//@urndef/@specDiagrams.0/@connections.39 //@urndef/@specDiagrams.1/@connections.0" dest="3105" src="5046"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5303" id="5303" refs="//@urndef/@specDiagrams.0/@connections.40 //@urndef/@specDiagrams.1/@connections.1" dest="3105" src="5053"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5352" id="5352" refs="//@urndef/@specDiagrams.0/@connections.41" dest="3145" src="3431"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5353" id="5353" refs="//@urndef/@specDiagrams.0/@connections.42" dest="3145" src="5349"/>
+    <links xsi:type="grl:Contribution" name="Contribution5360" id="5360" refs="//@urndef/@specDiagrams.1/@connections.5" dest="3722" src="3111" contribution="Hurt" quantitativeContribution="-25"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory5370" id="5370" refs="//@urndef/@specDiagrams.3/@connections.22" dest="1420" src="5082"/>
+    <links xsi:type="fm:OptionalFMLink" name="Optional5374" id="5374" refs="//@urndef/@specDiagrams.3/@connections.23" dest="1420" src="5362"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory5383" id="5383" refs="//@urndef/@specDiagrams.3/@connections.24" dest="2839" src="5078"/>
+    <links xsi:type="fm:OptionalFMLink" name="Optional5385" id="5385" refs="//@urndef/@specDiagrams.3/@connections.25" dest="2839" src="5378"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory5387" id="5387" refs="//@urndef/@specDiagrams.3/@connections.26" dest="3307" src="5080"/>
+    <links xsi:type="grl:Contribution" name="Contribution5407" id="5407" refs="//@urndef/@specDiagrams.1/@connections.8" dest="3722" src="5053"/>
+    <links xsi:type="grl:Contribution" name="Contribution5408" id="5408" refs="//@urndef/@specDiagrams.1/@connections.9" dest="3722" src="5055"/>
+    <links xsi:type="grl:Contribution" name="Contribution5409" id="5409" refs="//@urndef/@specDiagrams.1/@connections.10" dest="3722" src="5046"/>
+    <links xsi:type="grl:Contribution" name="Contribution5410" id="5410" refs="//@urndef/@specDiagrams.1/@connections.11" dest="18" src="5053"/>
+    <links xsi:type="grl:Contribution" name="Contribution5411" id="5411" refs="//@urndef/@specDiagrams.1/@connections.12" dest="18" src="5055"/>
+    <links xsi:type="grl:Contribution" name="Contribution5412" id="5412" refs="//@urndef/@specDiagrams.1/@connections.13" dest="18" src="5046"/>
+    <links xsi:type="grl:Contribution" name="Contribution5414" id="5414" refs="//@urndef/@specDiagrams.1/@connections.14" dest="3724" src="5046"/>
+    <links xsi:type="grl:Contribution" name="Contribution5415" id="5415" refs="//@urndef/@specDiagrams.1/@connections.15" dest="3724" src="5055"/>
+    <links xsi:type="grl:Contribution" name="Contribution5416" id="5416" refs="//@urndef/@specDiagrams.1/@connections.16" dest="3724" src="5053"/>
+    <links xsi:type="fm:OptionalFMLink" name="Optional5420" id="5420" refs="//@urndef/@specDiagrams.3/@connections.27" dest="1420" src="5046"/>
+    <links xsi:type="fm:OptionalFMLink" name="Optional5422" id="5422" refs="//@urndef/@specDiagrams.3/@connections.28" dest="2839" src="5055"/>
+    <links xsi:type="grl:Contribution" name="Contribution5424" id="5424" refs="//@urndef/@specDiagrams.0/@connections.43" dest="3722" src="3380"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5437" id="5437" refs="//@urndef/@specDiagrams.1/@connections.17" dest="3105" src="5376"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5438" id="5438" refs="//@urndef/@specDiagrams.1/@connections.18" dest="3105" src="5378"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5439" id="5439" refs="//@urndef/@specDiagrams.1/@connections.19" dest="3105" src="5362"/>
+    <links xsi:type="grl:Dependency" name="Dependency5456" id="5456" refs="//@urndef/@specDiagrams.1/@connections.20" dest="4251" src="5376"/>
+    <links xsi:type="grl:Dependency" name="Dependency5457" id="5457" refs="//@urndef/@specDiagrams.1/@connections.21" dest="4229" src="5362"/>
+    <links xsi:type="grl:Dependency" name="Dependency5458" id="5458" refs="//@urndef/@specDiagrams.1/@connections.22" dest="4240" src="5378"/>
+    <links xsi:type="grl:Dependency" name="Dependency5461" id="5461" refs="//@urndef/@specDiagrams.1/@connections.23" dest="4197" src="5046"/>
+    <links xsi:type="grl:Dependency" name="Dependency5462" id="5462" refs="//@urndef/@specDiagrams.1/@connections.24" dest="4175" src="5055"/>
+    <links xsi:type="grl:Dependency" name="Dependency5463" id="5463" refs="//@urndef/@specDiagrams.1/@connections.25" dest="4186" src="5053"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory5469" id="5469" refs="//@urndef/@specDiagrams.3/@connections.29" dest="1428" src="5465"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory5491" id="5491" refs="//@urndef/@specDiagrams.3/@connections.30" dest="5465" src="5473"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5526" id="5526" refs="//@urndef/@specDiagrams.1/@connections.26" dest="3111" src="5516"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5556" id="5556" refs="//@urndef/@specDiagrams.1/@connections.27" dest="3111" src="3135"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5665" id="5665" refs="//@urndef/@specDiagrams.0/@connections.44" dest="2933" src="5661"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5733" id="5733" refs="//@urndef/@specDiagrams.2/@connections.0" dest="5661" src="5473"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5735" id="5735" refs="//@urndef/@specDiagrams.2/@connections.1" dest="5661" src="5481"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5750" id="5750" refs="//@urndef/@specDiagrams.2/@connections.2" dest="5661" src="5743"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5798" id="5798" refs="//@urndef/@specDiagrams.2/@connections.3" dest="5661" src="5773"/>
+    <links xsi:type="grl:Contribution" name="Contribution5804" id="5804" refs="//@urndef/@specDiagrams.1/@connections.28" dest="3724" src="5790" contribution="Hurt" quantitativeContribution="-25"/>
+    <links xsi:type="grl:Dependency" name="Dependency5807" id="5807" refs="//@urndef/@specDiagrams.2/@connections.4" dest="4486" src="5773"/>
+    <links xsi:type="grl:Contribution" name="Contribution5814" id="5814" refs="//@urndef/@specDiagrams.1/@connections.29" dest="5790" src="3111" contribution="Hurt" quantitativeContribution="-25"/>
+    <links xsi:type="grl:Dependency" name="Dependency5818" id="5818" refs="//@urndef/@specDiagrams.2/@connections.5" dest="5111" src="5743"/>
+    <links xsi:type="grl:Dependency" name="Dependency5819" id="5819" refs="//@urndef/@specDiagrams.2/@connections.6" dest="5236" src="5743"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5835" id="5835" refs="//@urndef/@specDiagrams.2/@connections.7" dest="5743" src="5822"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5836" id="5836" refs="//@urndef/@specDiagrams.2/@connections.8" dest="5743" src="5826"/>
+    <links xsi:type="grl:Contribution" name="Contribution5838" id="5838" refs="//@urndef/@specDiagrams.2/@connections.9" dest="3724" src="5826"/>
+    <links xsi:type="grl:Contribution" name="Contribution5840" id="5840" refs="//@urndef/@specDiagrams.2/@connections.10" dest="5790" src="5822"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5879" id="5879" refs="//@urndef/@specDiagrams.2/@connections.11" dest="5661" src="5475"/>
+    <links xsi:type="grl:Dependency" name="Dependency5882" id="5882" refs="//@urndef/@specDiagrams.2/@connections.12" dest="4528" src="5475"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5910" id="5910" refs="//@urndef/@specDiagrams.2/@connections.13" dest="5661" src="5902"/>
+    <links xsi:type="grl:Dependency" name="Dependency5912" id="5912" refs="//@urndef/@specDiagrams.2/@connections.14" dest="5516" src="5902"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory5918" id="5918" refs="//@urndef/@specDiagrams.3/@connections.31" dest="5465" src="5914"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5924" id="5924" refs="//@urndef/@specDiagrams.3/@connections.32" dest="5914" src="5477"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5925" id="5925" refs="//@urndef/@specDiagrams.3/@connections.33" dest="5914" src="5471"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5927" id="5927" refs="//@urndef/@specDiagrams.2/@connections.15" dest="5902" src="5477"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition5930" id="5930" refs="//@urndef/@specDiagrams.2/@connections.16" dest="5902" src="5782"/>
+    <links xsi:type="fm:OptionalFMLink" name="Optional5989" id="5989" refs="//@urndef/@specDiagrams.3/@connections.34" dest="1428" src="5985"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory5991" id="5991" refs="//@urndef/@specDiagrams.3/@connections.35" dest="5985" src="5782"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory5992" id="5992" refs="//@urndef/@specDiagrams.3/@connections.36" dest="5985" src="3111"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory6233" id="6233" refs="//@urndef/@specDiagrams.3/@connections.37" dest="5465" src="5485"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory6245" id="6245" refs="//@urndef/@specDiagrams.3/@connections.38" dest="5465" src="5475"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory6257" id="6257" refs="//@urndef/@specDiagrams.3/@connections.39" dest="5465" src="5481"/>
+    <links xsi:type="fm:OptionalFMLink" name="Optional6310" id="6310" refs="//@urndef/@specDiagrams.3/@connections.40" dest="1428" src="6306"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition6328" id="6328" refs="//@urndef/@specDiagrams.0/@connections.45" dest="3167" src="6325"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition6346" id="6346" refs="//@urndef/@specDiagrams.0/@connections.46" dest="3105" src="6306"/>
+    <links xsi:type="grl:Dependency" name="Dependency6348" id="6348" refs="//@urndef/@specDiagrams.0/@connections.47" dest="6325" src="6306"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition6366" id="6366" refs="//@urndef/@specDiagrams.0/@connections.48" dest="95" src="6363"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition6369" id="6369" refs="//@urndef/@specDiagrams.0/@connections.49" dest="3145" src="5516"/>
+    <links xsi:type="grl:Dependency" name="Dependency6371" id="6371" refs="//@urndef/@specDiagrams.0/@connections.50" dest="6363" src="6306"/>
+    <links xsi:type="grl:Contribution" name="Contribution6386" id="6386" refs="//@urndef/@specDiagrams.0/@connections.51" dest="3145" src="6383" contribution="Make" quantitativeContribution="100"/>
+    <links xsi:type="grl:Contribution" name="Contribution6444" id="6444" refs="//@urndef/@specDiagrams.2/@connections.17" dest="5790" src="5902" contribution="SomePositive" quantitativeContribution="75"/>
+    <links xsi:type="grl:Contribution" name="Contribution6446" id="6446" refs="//@urndef/@specDiagrams.0/@connections.52" dest="18" src="6306" contribution="SomePositive" quantitativeContribution="75"/>
+    <links xsi:type="grl:Contribution" name="Contribution6447" id="6447" refs="//@urndef/@specDiagrams.0/@connections.53" dest="3724" src="6306" contribution="SomePositive" quantitativeContribution="75"/>
+    <links xsi:type="grl:Contribution" name="Contribution6473" id="6473" refs="//@urndef/@specDiagrams.0/@connections.54" dest="69" src="687" contribution="Make" quantitativeContribution="100"/>
+    <links xsi:type="grl:Contribution" name="Contribution6475" id="6475" refs="//@urndef/@specDiagrams.0/@connections.55" dest="3380" src="4528" contribution="Make" quantitativeContribution="100"/>
+    <links xsi:type="fm:OptionalFMLink" name="Optional6486" id="6486" refs="//@urndef/@specDiagrams.3/@connections.41" dest="3307" src="5376"/>
+    <links xsi:type="fm:OptionalFMLink" name="Optional6487" id="6487" refs="//@urndef/@specDiagrams.3/@connections.42" dest="3307" src="5053"/>
+    <links xsi:type="grl:Contribution" name="Contribution6498" id="6498" refs="//@urndef/@specDiagrams.1/@connections.30" dest="5376" src="6495" contribution="Make" quantitativeContribution="100"/>
+    <links xsi:type="grl:Contribution" name="Contribution6510" id="6510" refs="//@urndef/@specDiagrams.1/@connections.31" dest="5362" src="6507" contribution="Make" quantitativeContribution="100"/>
+    <links xsi:type="grl:Contribution" name="Contribution6524" id="6524" refs="//@urndef/@specDiagrams.1/@connections.32" dest="5378" src="6519" contribution="Make" quantitativeContribution="100"/>
+    <links xsi:type="grl:Contribution" name="Contribution6549" id="6549" refs="//@urndef/@specDiagrams.1/@connections.33" dest="5055" src="6546" contribution="Make" quantitativeContribution="100"/>
+    <links xsi:type="grl:Contribution" name="Contribution6562" id="6562" refs="//@urndef/@specDiagrams.1/@connections.34" dest="5046" src="6559" contribution="Make" quantitativeContribution="100"/>
+    <links xsi:type="grl:Contribution" name="Contribution6575" id="6575" refs="//@urndef/@specDiagrams.1/@connections.35" dest="5053" src="6572" contribution="Make" quantitativeContribution="100"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition6614" id="6614" refs="//@urndef/@specDiagrams.3/@connections.43" dest="1408" src="124"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition6615" id="6615" refs="//@urndef/@specDiagrams.3/@connections.44" dest="1408" src="126"/>
+    <links xsi:type="grl:Decomposition" name="Decomposition6726" id="6726" refs="//@urndef/@specDiagrams.2/@connections.18" dest="5902" src="5471"/>
+    <links xsi:type="grl:Contribution" name="Contribution6747" id="6747" refs="//@urndef/@specDiagrams.2/@connections.19" dest="5826" src="6744" contribution="Make" quantitativeContribution="100"/>
+    <links xsi:type="fm:MandatoryFMLink" name="Mandatory6769" id="6769" refs="//@urndef/@specDiagrams.3/@connections.45" dest="5485" src="5822"/>
+    <links xsi:type="fm:OptionalFMLink" name="Optional6771" id="6771" refs="//@urndef/@specDiagrams.3/@connections.46" dest="5485" src="5826"/>
+    <links xsi:type="grl:Contribution" name="Contribution6773" id="6773" refs="//@urndef/@specDiagrams.0/@connections.56" dest="3722" src="3145" contribution="Hurt" quantitativeContribution="-25"/>
+    <links xsi:type="grl:Contribution" name="Contribution6775" id="6775" refs="//@urndef/@specDiagrams.0/@connections.57" dest="18" src="3380" contribution="Hurt" quantitativeContribution="-25"/>
+    <groups name="StrategiesGroup4" id="4" strategies="5"/>
+    <strategies name="EvaluationStrategy5" id="5" author="User" group="4"/>
+    <impactModel/>
+    <indicatorGroup name="Time" id="8" isRedesignCategory="true"/>
+    <indicatorGroup name="Cost" id="9" isRedesignCategory="true"/>
+    <indicatorGroup name="Quality" id="10" isRedesignCategory="true"/>
+    <indicatorGroup name="Flexibility" id="11" isRedesignCategory="true"/>
+    <featureModel/>
+  </grlspec>
+  <urndef>
+    <specDiagrams xsi:type="grl:GRLGraph" name="Manage home" id="2">
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef46" id="46" x="851" y="-445" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.3" pred="//@urndef/@specDiagrams.0/@connections.0 //@urndef/@specDiagrams.0/@connections.1 //@urndef/@specDiagrams.0/@connections.4" def="45">
+        <metadata name="_width" value="148"/>
+        <metadata name="_height" value="67"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef50" id="50" x="2116" y="-463" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.17" pred="//@urndef/@specDiagrams.0/@connections.18 //@urndef/@specDiagrams.0/@connections.19 //@urndef/@specDiagrams.0/@connections.20 //@urndef/@specDiagrams.0/@connections.21" def="49">
+        <metadata name="_width" value="145"/>
+        <metadata name="_height" value="72"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef55" id="55" x="1201" y="356" contRef="26" pred="//@urndef/@specDiagrams.0/@connections.10 //@urndef/@specDiagrams.0/@connections.52 //@urndef/@specDiagrams.0/@connections.57" def="18">
+        <metadata name="_width" value="285"/>
+        <metadata name="_height" value="87"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef70" id="70" x="584" y="-316" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.0 //@urndef/@specDiagrams.0/@connections.2" pred="//@urndef/@specDiagrams.0/@connections.54" def="69">
+        <metadata name="_width" value="139"/>
+        <metadata name="_height" value="47"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef96" id="96" x="1265" y="-215" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.27 //@urndef/@specDiagrams.0/@connections.37" pred="//@urndef/@specDiagrams.0/@connections.13 //@urndef/@specDiagrams.0/@connections.14 //@urndef/@specDiagrams.0/@connections.48" def="95">
+        <metadata name="_height" value="62"/>
+        <metadata name="_width" value="169"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef125" id="125" x="2239" y="-274" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.20" def="124">
+        <metadata name="_width" value="136"/>
+        <metadata name="_height" value="60"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef127" id="127" x="2503" y="-324" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.18" pred="//@urndef/@specDiagrams.0/@connections.22 //@urndef/@specDiagrams.0/@connections.23" def="126">
+        <metadata name="_width" value="130"/>
+        <metadata name="_height" value="62"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef177" id="177" x="664" y="352" contRef="26" pred="//@urndef/@specDiagrams.0/@connections.2 //@urndef/@specDiagrams.0/@connections.6" def="176">
+        <metadata name="_width" value="200"/>
+        <metadata name="_height" value="92"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef688" id="688" x="533" y="-187" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.54" def="687">
+        <metadata name="_height" value="66"/>
+        <metadata name="_width" value="118"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef702" id="702" x="2614" y="-217" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.22" def="701">
+        <metadata name="_height" value="67"/>
+        <metadata name="_width" value="137"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef1972" id="1972" x="288" y="-202" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.5" def="1971">
+        <metadata name="_height" value="45"/>
+        <metadata name="_width" value="110"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef2195" id="2195" x="547" y="-409" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.1" def="2194">
+        <metadata name="_width" value="129"/>
+        <metadata name="_height" value="52"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef2832" id="2832" x="835" y="-232" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.31" def="93">
+        <metadata name="_width" value="120"/>
+        <metadata name="_height" value="51"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef2934" id="2934" x="1412" y="-541" contRef="3003" pred="//@urndef/@specDiagrams.0/@connections.3 //@urndef/@specDiagrams.0/@connections.9 //@urndef/@specDiagrams.0/@connections.17 //@urndef/@specDiagrams.0/@connections.24 //@urndef/@specDiagrams.0/@connections.44" def="2933">
+        <metadata name="_width" value="215"/>
+        <metadata name="_height" value="44"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3042" id="3042" x="379" y="-344" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.4 //@urndef/@specDiagrams.0/@connections.6" pred="//@urndef/@specDiagrams.0/@connections.5" def="3041">
+        <metadata name="_width" value="146"/>
+        <metadata name="_height" value="58"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3106" id="3106" x="1605" y="-449" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.9" pred="//@urndef/@specDiagrams.0/@connections.7 //@urndef/@specDiagrams.0/@connections.8 //@urndef/@specDiagrams.0/@connections.38 //@urndef/@specDiagrams.0/@connections.39 //@urndef/@specDiagrams.0/@connections.40 //@urndef/@specDiagrams.0/@connections.46" def="3105">
+        <metadata name="_width" value="160"/>
+        <metadata name="_height" value="62"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3110" id="3110" x="1873" y="-263" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.7" def="3109">
+        <metadata name="_width" value="95"/>
+        <metadata name="_height" value="50"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3112" id="3112" x="1976" y="-256" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.8" def="3111">
+        <metadata name="_width" value="149"/>
+        <metadata name="_height" value="45"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3148" id="3148" x="1009" y="-169" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.10 //@urndef/@specDiagrams.0/@connections.33 //@urndef/@specDiagrams.0/@connections.56" pred="//@urndef/@specDiagrams.0/@connections.41 //@urndef/@specDiagrams.0/@connections.42 //@urndef/@specDiagrams.0/@connections.49 //@urndef/@specDiagrams.0/@connections.51" def="3145">
+        <metadata name="_width" value="123"/>
+        <metadata name="_height" value="60"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3168" id="3168" x="1616" y="-225" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.26 //@urndef/@specDiagrams.0/@connections.36" pred="//@urndef/@specDiagrams.0/@connections.11 //@urndef/@specDiagrams.0/@connections.12 //@urndef/@specDiagrams.0/@connections.45" def="3167">
+        <metadata name="_width" value="132"/>
+        <metadata name="_height" value="59"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3170" id="3170" x="702" y="-248" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.30" def="3169">
+        <metadata name="_width" value="122"/>
+        <metadata name="_height" value="66"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3432" id="3432" x="765" y="19" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.41" def="3431">
+        <metadata name="_height" value="67"/>
+        <metadata name="_width" value="123"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3723" id="3723" x="872" y="373" contRef="26" pred="//@urndef/@specDiagrams.0/@connections.43 //@urndef/@specDiagrams.0/@connections.56" def="3722">
+        <metadata name="_width" value="290"/>
+        <metadata name="_height" value="69"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3725" id="3725" x="2024" y="359" contRef="26" pred="//@urndef/@specDiagrams.0/@connections.53" def="3724">
+        <metadata name="_height" value="81"/>
+        <metadata name="_width" value="202"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3933" id="3933" x="760" y="-326" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.28" def="3382">
+        <metadata name="_width" value="124"/>
+        <metadata name="_height" value="60"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3935" id="3935" x="1150" y="-107" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.34 //@urndef/@specDiagrams.0/@connections.43 //@urndef/@specDiagrams.0/@connections.57" pred="//@urndef/@specDiagrams.0/@connections.55" def="3380">
+        <metadata name="_width" value="129"/>
+        <metadata name="_height" value="68"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3976" id="3976" x="1335" y="-448" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.24" pred="//@urndef/@specDiagrams.0/@connections.25 //@urndef/@specDiagrams.0/@connections.32" def="3975">
+        <metadata name="_width" value="184"/>
+        <metadata name="_height" value="65"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef4071" id="4071" x="2382" y="-275" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.19" pred="//@urndef/@specDiagrams.0/@connections.15 //@urndef/@specDiagrams.0/@connections.16" def="3309">
+        <metadata name="_width" value="122"/>
+        <metadata name="_height" value="63"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef4075" id="4075" x="2114" y="-221" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.21" def="3311">
+        <metadata name="_width" value="138"/>
+        <metadata name="_height" value="66"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef4176" id="4176" x="1281" y="-92" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.14" def="4175">
+        <metadata name="_height" value="68"/>
+        <metadata name="_width" value="108"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef4187" id="4187" x="2271" y="-121" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.16" def="4186">
+        <metadata name="_height" value="80"/>
+        <metadata name="_width" value="171"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef4198" id="4198" x="1729" y="5" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.12" def="4197">
+        <metadata name="_height" value="72"/>
+        <metadata name="_width" value="126"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef4230" id="4230" x="1613" y="96" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.11" def="4229">
+        <metadata name="_height" value="80"/>
+        <metadata name="_width" value="149"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef4241" id="4241" x="1397" y="-52" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.13" def="4240">
+        <metadata name="_height" value="70"/>
+        <metadata name="_width" value="132"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef4252" id="4252" x="2460" y="-121" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.15" def="4251">
+        <metadata name="_height" value="84"/>
+        <metadata name="_width" value="162"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef4487" id="4487" x="2491" y="-209" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.23" def="4486">
+        <metadata name="_height" value="55"/>
+        <metadata name="_width" value="110"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef4984" id="4984" x="1012" y="-264" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.29" def="3298">
+        <metadata name="_width" value="108"/>
+        <metadata name="_height" value="68"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5112" id="5112" x="1279" y="-347" contRef="3003" pred="//@urndef/@specDiagrams.0/@connections.37" def="5236">
+        <metadata name="_height" value="75"/>
+        <metadata name="_width" value="135"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5142" id="5142" x="1453" y="-348" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.25" pred="//@urndef/@specDiagrams.0/@connections.26 //@urndef/@specDiagrams.0/@connections.27" def="5141">
+        <metadata name="_width" value="110"/>
+        <metadata name="_height" value="73"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef4529" id="4529" x="1341" y="113" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.55" def="4528">
+        <metadata name="_height" value="76"/>
+        <metadata name="_width" value="130"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5191" id="5191" x="1013" y="-405" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.32" pred="//@urndef/@specDiagrams.0/@connections.28 //@urndef/@specDiagrams.0/@connections.29 //@urndef/@specDiagrams.0/@connections.30 //@urndef/@specDiagrams.0/@connections.31 //@urndef/@specDiagrams.0/@connections.35" def="5190">
+        <metadata name="_width" value="144"/>
+        <metadata name="_height" value="68"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5213" id="5213" x="1128" y="-301" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.35" pred="//@urndef/@specDiagrams.0/@connections.33 //@urndef/@specDiagrams.0/@connections.34" def="5212">
+        <metadata name="_width" value="127"/>
+        <metadata name="_height" value="72"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5237" id="5237" x="1535" contRef="3003" pred="//@urndef/@specDiagrams.0/@connections.36" def="5111">
+        <metadata name="_height" value="72"/>
+        <metadata name="_width" value="139"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5290" id="5290" x="1909" y="-417" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.39" def="5046">
+        <metadata name="_width" value="182"/>
+        <metadata name="_height" value="64"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5294" id="5294" x="1621" y="-317" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.38" def="5055">
+        <metadata name="_width" value="120"/>
+        <metadata name="_height" value="64"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5298" id="5298" x="2002" y="-336" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.40" def="5053">
+        <metadata name="_width" value="156"/>
+        <metadata name="_height" value="56"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5350" id="5350" x="743" y="-81" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.42" def="5349">
+        <metadata name="_height" value="72"/>
+        <metadata name="_width" value="135"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5662" id="5662" x="990" y="-520" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.44" def="5661">
+        <metadata name="_width" value="125"/>
+        <metadata name="_height" value="72"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef6326" id="6326" x="1781" y="-136" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.45 //@urndef/@specDiagrams.0/@connections.47" def="6325">
+        <metadata name="_height" value="59"/>
+        <metadata name="_width" value="120"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef6331" id="6331" x="2051" y="-9" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.46 //@urndef/@specDiagrams.0/@connections.52 //@urndef/@specDiagrams.0/@connections.53" pred="//@urndef/@specDiagrams.0/@connections.47 //@urndef/@specDiagrams.0/@connections.50" def="6306">
+        <metadata name="_width" value="105"/>
+        <metadata name="_height" value="68"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef6364" id="6364" x="1459" y="-143" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.48 //@urndef/@specDiagrams.0/@connections.50" def="6363">
+        <metadata name="_height" value="70"/>
+        <metadata name="_width" value="115"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef6368" id="6368" x="881" y="45" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.49" def="5516">
+        <metadata name="_height" value="91"/>
+        <metadata name="_width" value="156"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef6384" id="6384" x="750" y="-160" contRef="3003" succ="//@urndef/@specDiagrams.0/@connections.51" def="6383">
+        <metadata name="_height" value="55"/>
+        <metadata name="_width" value="110"/>
+      </nodes>
+      <contRefs xsi:type="grl:ActorRef" name="ActorRef26" id="26" x="109" y="308" width="2587" height="168" contDef="25" nodes="177 55 3723 3725">
+        <label deltaX="55" deltaY="5"/>
+      </contRefs>
+      <contRefs xsi:type="grl:ActorRef" name="ActorRef3003" id="3003" x="194" y="-556" width="2575" height="816" contDef="1516" nodes="46 50 70 96 125 127 688 702 1972 2195 3042 3106 3110 3112 3148 3168 3170 3432 3933 3935 3976 4071 4075 4187 4198 4230 4252 4487 4241 4176 2832 4984 5112 5142 5191 5213 5237 5290 5298 5294 5350 5662 6326 6331 6364 6368 6384 2934 4529">
+        <label/>
+      </contRefs>
+      <connections xsi:type="grl:LinkRef" source="70" target="46" link="2236"/>
+      <connections xsi:type="grl:LinkRef" source="2195" target="46" link="2446"/>
+      <connections xsi:type="grl:LinkRef" source="70" target="177" link="2747">
+        <label deltaX="33" deltaY="-11"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="46" target="2934" link="2940"/>
+      <connections xsi:type="grl:LinkRef" source="3042" target="46" link="3045"/>
+      <connections xsi:type="grl:LinkRef" source="1972" target="3042" link="3047">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="3042" target="177" link="3049">
+        <label deltaX="-34" deltaY="-26"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="3110" target="3106" link="3138"/>
+      <connections xsi:type="grl:LinkRef" source="3112" target="3106" link="3139"/>
+      <connections xsi:type="grl:LinkRef" source="3106" target="2934" link="3143"/>
+      <connections xsi:type="grl:LinkRef" source="3148" target="55" link="4113">
+        <label deltaX="-27" deltaY="-36"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="4230" target="3168" link="4255"/>
+      <connections xsi:type="grl:LinkRef" source="4198" target="3168" link="4256"/>
+      <connections xsi:type="grl:LinkRef" source="4241" target="96" link="4263"/>
+      <connections xsi:type="grl:LinkRef" source="4176" target="96" link="4264"/>
+      <connections xsi:type="grl:LinkRef" source="4252" target="4071" link="4265"/>
+      <connections xsi:type="grl:LinkRef" source="4187" target="4071" link="4272"/>
+      <connections xsi:type="grl:LinkRef" source="50" target="2934" link="4438"/>
+      <connections xsi:type="grl:LinkRef" source="127" target="50" link="4464"/>
+      <connections xsi:type="grl:LinkRef" source="4071" target="50" link="4465"/>
+      <connections xsi:type="grl:LinkRef" source="125" target="50" link="4466"/>
+      <connections xsi:type="grl:LinkRef" source="4075" target="50" link="4467"/>
+      <connections xsi:type="grl:LinkRef" source="702" target="127" link="4476"/>
+      <connections xsi:type="grl:LinkRef" source="4487" target="127" link="4489"/>
+      <connections xsi:type="grl:LinkRef" source="3976" target="2934" link="4587"/>
+      <connections xsi:type="grl:LinkRef" source="5142" target="3976" link="5145"/>
+      <connections xsi:type="grl:LinkRef" source="3168" target="5142" link="5155"/>
+      <connections xsi:type="grl:LinkRef" source="96" target="5142" link="5157"/>
+      <connections xsi:type="grl:LinkRef" source="3933" target="5191" link="5194"/>
+      <connections xsi:type="grl:LinkRef" source="4984" target="5191" link="5195"/>
+      <connections xsi:type="grl:LinkRef" source="3170" target="5191" link="5196"/>
+      <connections xsi:type="grl:LinkRef" source="2832" target="5191" link="5197"/>
+      <connections xsi:type="grl:LinkRef" source="5191" target="3976" link="5198"/>
+      <connections xsi:type="grl:LinkRef" source="3148" target="5213" link="5216"/>
+      <connections xsi:type="grl:LinkRef" source="3935" target="5213" link="5217"/>
+      <connections xsi:type="grl:LinkRef" source="5213" target="5191" link="5221"/>
+      <connections xsi:type="grl:LinkRef" source="3168" target="5237" link="5253"/>
+      <connections xsi:type="grl:LinkRef" source="96" target="5112" link="5254"/>
+      <connections xsi:type="grl:LinkRef" source="5294" target="3106" link="5301"/>
+      <connections xsi:type="grl:LinkRef" source="5290" target="3106" link="5302"/>
+      <connections xsi:type="grl:LinkRef" source="5298" target="3106" link="5303"/>
+      <connections xsi:type="grl:LinkRef" source="3432" target="3148" link="5352"/>
+      <connections xsi:type="grl:LinkRef" source="5350" target="3148" link="5353"/>
+      <connections xsi:type="grl:LinkRef" source="3935" target="3723" link="5424">
+        <label deltaX="30" deltaY="-32"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5662" target="2934" link="5665"/>
+      <connections xsi:type="grl:LinkRef" source="6326" target="3168" link="6328"/>
+      <connections xsi:type="grl:LinkRef" source="6331" target="3106" link="6346"/>
+      <connections xsi:type="grl:LinkRef" source="6326" target="6331" link="6348"/>
+      <connections xsi:type="grl:LinkRef" source="6364" target="96" link="6366"/>
+      <connections xsi:type="grl:LinkRef" source="6368" target="3148" link="6369"/>
+      <connections xsi:type="grl:LinkRef" source="6364" target="6331" link="6371"/>
+      <connections xsi:type="grl:LinkRef" source="6384" target="3148" link="6386">
+        <label deltaX="-24" deltaY="-56"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="6331" target="55" link="6446">
+        <label deltaX="22" deltaY="-59"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="6331" target="3725" link="6447">
+        <label deltaX="-27" deltaY="-11"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="688" target="70" link="6473">
+        <label deltaX="34" deltaY="-69"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="4529" target="3935" link="6475">
+        <label deltaX="-18" deltaY="-42"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="3148" target="3723" link="6773">
+        <label deltaX="-32" deltaY="-15"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="3935" target="55" link="6775">
+        <label deltaX="29" deltaY="-8"/>
+      </connections>
+    </specDiagrams>
+    <specDiagrams xsi:type="grl:GRLGraph" name="Provided services" id="4093">
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5392" id="5392" x="958" y="-90" contRef="5403" pred="//@urndef/@specDiagrams.1/@connections.0 //@urndef/@specDiagrams.1/@connections.1 //@urndef/@specDiagrams.1/@connections.2 //@urndef/@specDiagrams.1/@connections.3 //@urndef/@specDiagrams.1/@connections.4 //@urndef/@specDiagrams.1/@connections.17 //@urndef/@specDiagrams.1/@connections.18 //@urndef/@specDiagrams.1/@connections.19" def="3105">
+        <metadata name="_width" value="160"/>
+        <metadata name="_height" value="62"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5393" id="5393" x="1689" y="133" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.0 //@urndef/@specDiagrams.1/@connections.10 //@urndef/@specDiagrams.1/@connections.13 //@urndef/@specDiagrams.1/@connections.14" pred="//@urndef/@specDiagrams.1/@connections.23 //@urndef/@specDiagrams.1/@connections.34" def="5046">
+        <metadata name="_width" value="182"/>
+        <metadata name="_height" value="58"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5394" id="5394" x="1195" y="185" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.1 //@urndef/@specDiagrams.1/@connections.8 //@urndef/@specDiagrams.1/@connections.11 //@urndef/@specDiagrams.1/@connections.16" pred="//@urndef/@specDiagrams.1/@connections.25 //@urndef/@specDiagrams.1/@connections.35" def="5053">
+        <metadata name="_width" value="140"/>
+        <metadata name="_height" value="56"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5395" id="5395" x="563" y="-85" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.2" def="3109">
+        <metadata name="_width" value="95"/>
+        <metadata name="_height" value="50"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5396" id="5396" x="830" y="166" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.3 //@urndef/@specDiagrams.1/@connections.5 //@urndef/@specDiagrams.1/@connections.6 //@urndef/@specDiagrams.1/@connections.7 //@urndef/@specDiagrams.1/@connections.29" pred="//@urndef/@specDiagrams.1/@connections.26 //@urndef/@specDiagrams.1/@connections.27" def="3111">
+        <metadata name="_width" value="106"/>
+        <metadata name="_height" value="45"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5397" id="5397" x="1370" y="174" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.4 //@urndef/@specDiagrams.1/@connections.9 //@urndef/@specDiagrams.1/@connections.12 //@urndef/@specDiagrams.1/@connections.15" pred="//@urndef/@specDiagrams.1/@connections.24 //@urndef/@specDiagrams.1/@connections.33" def="5055">
+        <metadata name="_width" value="120"/>
+        <metadata name="_height" value="64"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5398" id="5398" x="1030" y="217" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.27" def="3135">
+        <metadata name="_height" value="82"/>
+        <metadata name="_width" value="109"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5399" id="5399" x="1394" y="788" contRef="5402" pred="//@urndef/@specDiagrams.1/@connections.5 //@urndef/@specDiagrams.1/@connections.8 //@urndef/@specDiagrams.1/@connections.9 //@urndef/@specDiagrams.1/@connections.10" def="3722">
+        <metadata name="_width" value="250"/>
+        <metadata name="_height" value="73"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5400" id="5400" x="760" y="779" contRef="5402" pred="//@urndef/@specDiagrams.1/@connections.6 //@urndef/@specDiagrams.1/@connections.14 //@urndef/@specDiagrams.1/@connections.15 //@urndef/@specDiagrams.1/@connections.16 //@urndef/@specDiagrams.1/@connections.28" def="3724">
+        <metadata name="_height" value="81"/>
+        <metadata name="_width" value="202"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5401" id="5401" x="1019" y="797" contRef="5402" pred="//@urndef/@specDiagrams.1/@connections.7 //@urndef/@specDiagrams.1/@connections.11 //@urndef/@specDiagrams.1/@connections.12 //@urndef/@specDiagrams.1/@connections.13" def="18">
+        <metadata name="_width" value="283"/>
+        <metadata name="_height" value="76"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5430" id="5430" x="365" y="148" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.19" pred="//@urndef/@specDiagrams.1/@connections.21 //@urndef/@specDiagrams.1/@connections.31" def="5362">
+        <metadata name="_width" value="140"/>
+        <metadata name="_height" value="80"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5432" id="5432" x="540" y="155" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.18" pred="//@urndef/@specDiagrams.1/@connections.22 //@urndef/@specDiagrams.1/@connections.32" def="5378">
+        <metadata name="_width" value="154"/>
+        <metadata name="_height" value="71"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5434" id="5434" x="514" y="-21" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.17" pred="//@urndef/@specDiagrams.1/@connections.20 //@urndef/@specDiagrams.1/@connections.30" def="5376">
+        <metadata name="_width" value="131"/>
+        <metadata name="_height" value="111"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5446" id="5446" x="295" y="-23" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.20" def="4251">
+        <metadata name="_height" value="84"/>
+        <metadata name="_width" value="129"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5447" id="5447" x="1235" y="-76" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.25" def="4186">
+        <metadata name="_height" value="61"/>
+        <metadata name="_width" value="144"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5452" id="5452" x="149" y="219" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.21" def="4229">
+        <metadata name="_height" value="80"/>
+        <metadata name="_width" value="124"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5453" id="5453" x="1574" y="3" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.23" def="4197">
+        <metadata name="_height" value="72"/>
+        <metadata name="_width" value="126"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5454" id="5454" x="1391" y="-51" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.24" def="4175">
+        <metadata name="_height" value="55"/>
+        <metadata name="_width" value="140"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5455" id="5455" x="550" y="398" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.22" def="4240">
+        <metadata name="_height" value="69"/>
+        <metadata name="_width" value="132"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5517" id="5517" x="651" y="258" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.26" def="5516">
+        <metadata name="_height" value="92"/>
+        <metadata name="_width" value="147"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5801" id="5801" x="546" y="782" contRef="5402" succ="//@urndef/@specDiagrams.1/@connections.28" pred="//@urndef/@specDiagrams.1/@connections.29" def="5790">
+        <metadata name="_width" value="147"/>
+        <metadata name="_height" value="68"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef6496" id="6496" x="203" y="85" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.30" def="6495">
+        <metadata name="_height" value="83"/>
+        <metadata name="_width" value="131"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef6508" id="6508" x="231" y="325" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.31" def="6507">
+        <metadata name="_height" value="100"/>
+        <metadata name="_width" value="159"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef6520" id="6520" x="411" y="334" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.32" def="6519">
+        <metadata name="_height" value="69"/>
+        <metadata name="_width" value="145"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef6547" id="6547" x="1541" y="141" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.33" def="6546">
+        <metadata name="_height" value="95"/>
+        <metadata name="_width" value="114"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef6560" id="6560" x="1740" y="268" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.34" def="6559">
+        <metadata name="_height" value="86"/>
+        <metadata name="_width" value="143"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef6573" id="6573" x="957" y="88" contRef="5403" succ="//@urndef/@specDiagrams.1/@connections.35" def="6572">
+        <metadata name="_height" value="69"/>
+        <metadata name="_width" value="168"/>
+      </nodes>
+      <contRefs xsi:type="grl:ActorRef" name="ActorRef5402" id="5402" x="71" y="639" width="1927" height="309" contDef="25" nodes="5399 5400 5401 5801">
+        <label/>
+      </contRefs>
+      <contRefs xsi:type="grl:ActorRef" name="ActorRef5403" id="5403" x="22" y="-131" width="1925" height="748" contDef="1516" nodes="5392 5393 5394 5395 5396 5397 5398 5430 5432 5434 5446 5447 5452 5453 5454 5455 5517 6496 6508 6520 6547 6560 6573">
+        <label/>
+      </contRefs>
+      <connections xsi:type="grl:LinkRef" source="5393" target="5392" link="5302"/>
+      <connections xsi:type="grl:LinkRef" source="5394" target="5392" link="5303"/>
+      <connections xsi:type="grl:LinkRef" source="5395" target="5392" link="3138"/>
+      <connections xsi:type="grl:LinkRef" source="5396" target="5392" link="3139"/>
+      <connections xsi:type="grl:LinkRef" source="5397" target="5392" link="5301"/>
+      <connections xsi:type="grl:LinkRef" source="5396" target="5399" link="5360">
+        <label deltaX="-41" deltaY="-68"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5396" target="5400" link="5074">
+        <label deltaX="-26" deltaY="-28"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5396" target="5401" link="5076">
+        <label deltaX="20" deltaY="-35"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5394" target="5399" link="5407">
+        <label deltaX="-21" deltaY="-54"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5397" target="5399" link="5408">
+        <label deltaX="18" deltaY="-45"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5393" target="5399" link="5409">
+        <label deltaX="25" deltaY="-35"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5394" target="5401" link="5410">
+        <label deltaX="-55" deltaY="-7"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5397" target="5401" link="5411">
+        <label deltaX="17" deltaY="-49"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5393" target="5401" link="5412">
+        <label deltaX="25" deltaY="-43"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5393" target="5400" link="5414">
+        <label deltaX="27" deltaY="-45"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5397" target="5400" link="5415">
+        <label deltaX="12" deltaY="-58"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5394" target="5400" link="5416">
+        <label deltaX="-13" deltaY="-48"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5434" target="5392" link="5437"/>
+      <connections xsi:type="grl:LinkRef" source="5432" target="5392" link="5438"/>
+      <connections xsi:type="grl:LinkRef" source="5430" target="5392" link="5439"/>
+      <connections xsi:type="grl:LinkRef" source="5446" target="5434" link="5456"/>
+      <connections xsi:type="grl:LinkRef" source="5452" target="5430" link="5457"/>
+      <connections xsi:type="grl:LinkRef" source="5455" target="5432" link="5458"/>
+      <connections xsi:type="grl:LinkRef" source="5453" target="5393" link="5461"/>
+      <connections xsi:type="grl:LinkRef" source="5454" target="5397" link="5462"/>
+      <connections xsi:type="grl:LinkRef" source="5447" target="5394" link="5463"/>
+      <connections xsi:type="grl:LinkRef" source="5517" target="5396" link="5526"/>
+      <connections xsi:type="grl:LinkRef" source="5398" target="5396" link="5556"/>
+      <connections xsi:type="grl:LinkRef" source="5801" target="5400" link="5804">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5396" target="5801" link="5814">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="6496" target="5434" link="6498">
+        <label deltaX="-21" deltaY="-36"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="6508" target="5430" link="6510">
+        <label deltaX="-26" deltaY="-15"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="6520" target="5432" link="6524">
+        <label deltaX="-19" deltaY="-49"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="6547" target="5397" link="6549">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="6560" target="5393" link="6562">
+        <label deltaX="21" deltaY="-45"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="6573" target="5394" link="6575">
+        <label deltaX="-20" deltaY="-49"/>
+      </connections>
+    </specDiagrams>
+    <specDiagrams xsi:type="grl:GRLGraph" name="GRLGraph5680" id="5680">
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5696" id="5696" x="678" y="-31" contRef="5701" pred="//@urndef/@specDiagrams.2/@connections.0 //@urndef/@specDiagrams.2/@connections.1 //@urndef/@specDiagrams.2/@connections.2 //@urndef/@specDiagrams.2/@connections.3 //@urndef/@specDiagrams.2/@connections.11 //@urndef/@specDiagrams.2/@connections.13" def="5661">
+        <metadata name="_width" value="181"/>
+        <metadata name="_height" value="71"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5698" id="5698" x="839" y="707" contRef="5702" pred="//@urndef/@specDiagrams.2/@connections.9" def="3724">
+        <metadata name="_height" value="80"/>
+        <metadata name="_width" value="137"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5704" id="5704" x="250" y="210" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.15" def="5477">
+        <metadata name="_width" value="118"/>
+        <metadata name="_height" value="88"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5706" id="5706" x="376" y="234" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.18" def="5471">
+        <metadata name="_width" value="118"/>
+        <metadata name="_height" value="68"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5710" id="5710" x="1096" y="105" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.0" def="5473">
+        <metadata name="_width" value="138"/>
+        <metadata name="_height" value="45"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5712" id="5712" x="1029" y="20" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.1" def="5481">
+        <metadata name="_width" value="131"/>
+        <metadata name="_height" value="71"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5721" id="5721" x="236" y="74" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.14" def="5516">
+        <metadata name="_height" value="92"/>
+        <metadata name="_width" value="150"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5744" id="5744" x="692" y="137" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.2" pred="//@urndef/@specDiagrams.2/@connections.5 //@urndef/@specDiagrams.2/@connections.6 //@urndef/@specDiagrams.2/@connections.7 //@urndef/@specDiagrams.2/@connections.8" def="5743">
+        <metadata name="_width" value="139"/>
+        <metadata name="_height" value="71"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5774" id="5774" x="1124" y="173" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.3" pred="//@urndef/@specDiagrams.2/@connections.4" def="5773">
+        <metadata name="_width" value="120"/>
+        <metadata name="_height" value="65"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5783" id="5783" x="543" y="210" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.16" def="5782">
+        <metadata name="_width" value="146"/>
+        <metadata name="_height" value="62"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5791" id="5791" x="465" y="713" contRef="5702" pred="//@urndef/@specDiagrams.2/@connections.10 //@urndef/@specDiagrams.2/@connections.17" def="5790">
+        <metadata name="_width" value="147"/>
+        <metadata name="_height" value="68"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5806" id="5806" x="1292" y="304" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.4" def="4486">
+        <metadata name="_height" value="55"/>
+        <metadata name="_width" value="110"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5816" id="5816" x="896" y="350" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.5" def="5111">
+        <metadata name="_height" value="72"/>
+        <metadata name="_width" value="137"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5817" id="5817" x="1046" y="338" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.6" def="5236">
+        <metadata name="_height" value="75"/>
+        <metadata name="_width" value="135"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5823" id="5823" x="551" y="310" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.7 //@urndef/@specDiagrams.2/@connections.10" def="5822">
+        <metadata name="_width" value="129"/>
+        <metadata name="_height" value="66"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5827" id="5827" x="710" y="294" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.8 //@urndef/@specDiagrams.2/@connections.9" pred="//@urndef/@specDiagrams.2/@connections.19" def="5826">
+        <metadata name="_width" value="153"/>
+        <metadata name="_height" value="74"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5866" id="5866" x="1045" y="247" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.12" def="4528">
+        <metadata name="_width" value="115"/>
+        <metadata name="_height" value="66"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5874" id="5874" x="865" y="133" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.11" pred="//@urndef/@specDiagrams.2/@connections.12" def="5475">
+        <metadata name="_width" value="108"/>
+        <metadata name="_height" value="72"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5903" id="5903" x="478" y="58" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.13 //@urndef/@specDiagrams.2/@connections.17" pred="//@urndef/@specDiagrams.2/@connections.14 //@urndef/@specDiagrams.2/@connections.15 //@urndef/@specDiagrams.2/@connections.16 //@urndef/@specDiagrams.2/@connections.18" def="5902">
+        <metadata name="_width" value="117"/>
+        <metadata name="_height" value="89"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef6745" id="6745" x="635" y="443" contRef="5701" succ="//@urndef/@specDiagrams.2/@connections.19" def="6744">
+        <metadata name="_height" value="87"/>
+        <metadata name="_width" value="151"/>
+      </nodes>
+      <contRefs xsi:type="grl:ActorRef" name="ActorRef5701" id="5701" x="71" y="-39" width="1427" height="616" contDef="1516" nodes="5704 5706 5710 5712 5744 5774 5721 5783 5816 5817 5806 5823 5827 5866 5874 5903 6745 5696">
+        <label/>
+      </contRefs>
+      <contRefs xsi:type="grl:ActorRef" name="ActorRef5702" id="5702" x="168" y="608" width="1268" height="279" contDef="25" nodes="5698 5791">
+        <label/>
+      </contRefs>
+      <connections xsi:type="grl:LinkRef" source="5710" target="5696" link="5733"/>
+      <connections xsi:type="grl:LinkRef" source="5712" target="5696" link="5735"/>
+      <connections xsi:type="grl:LinkRef" source="5744" target="5696" link="5750"/>
+      <connections xsi:type="grl:LinkRef" source="5774" target="5696" link="5798"/>
+      <connections xsi:type="grl:LinkRef" source="5806" target="5774" link="5807"/>
+      <connections xsi:type="grl:LinkRef" source="5816" target="5744" link="5818"/>
+      <connections xsi:type="grl:LinkRef" source="5817" target="5744" link="5819"/>
+      <connections xsi:type="grl:LinkRef" source="5823" target="5744" link="5835"/>
+      <connections xsi:type="grl:LinkRef" source="5827" target="5744" link="5836"/>
+      <connections xsi:type="grl:LinkRef" source="5827" target="5698" link="5838">
+        <label deltaX="21" deltaY="-43"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5823" target="5791" link="5840">
+        <label deltaX="27" deltaY="-36"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5874" target="5696" link="5879"/>
+      <connections xsi:type="grl:LinkRef" source="5866" target="5874" link="5882"/>
+      <connections xsi:type="grl:LinkRef" source="5903" target="5696" link="5910"/>
+      <connections xsi:type="grl:LinkRef" source="5721" target="5903" link="5912"/>
+      <connections xsi:type="grl:LinkRef" source="5704" target="5903" link="5927"/>
+      <connections xsi:type="grl:LinkRef" source="5783" target="5903" link="5930"/>
+      <connections xsi:type="grl:LinkRef" source="5903" target="5791" link="6444">
+        <label deltaX="-21" deltaY="-32"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5706" target="5903" link="6726"/>
+      <connections xsi:type="grl:LinkRef" source="6745" target="5827" link="6747">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+    </specDiagrams>
+    <specDiagrams xsi:type="fm:FeatureDiagram" name="SHSFeatures" id="3">
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef888" id="888" x="1061" y="382" succ="//@urndef/@specDiagrams.3/@connections.19" def="3167">
+        <metadata name="_height" value="66"/>
+        <metadata name="_width" value="125"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef1103" id="1103" x="1139" y="-38" succ="//@urndef/@specDiagrams.3/@connections.43" def="124">
+        <metadata name="_height" value="57"/>
+        <metadata name="_width" value="107"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef1170" id="1170" x="1198" y="361" succ="//@urndef/@specDiagrams.3/@connections.18" def="3169">
+        <metadata name="_height" value="69"/>
+        <metadata name="_width" value="135"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef1250" id="1250" x="1029" y="-20" succ="//@urndef/@specDiagrams.3/@connections.44" def="126">
+        <metadata name="_height" value="60"/>
+        <metadata name="_width" value="104"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef1409" id="1409" x="1018" y="-149" succ="//@urndef/@specDiagrams.3/@connections.12" pred="//@urndef/@specDiagrams.3/@connections.43 //@urndef/@specDiagrams.3/@connections.44" def="1408">
+        <metadata name="_width" value="129"/>
+        <metadata name="_height" value="64"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef1421" id="1421" x="929" y="80" succ="//@urndef/@specDiagrams.3/@connections.10" pred="//@urndef/@specDiagrams.3/@connections.22 //@urndef/@specDiagrams.3/@connections.23 //@urndef/@specDiagrams.3/@connections.27" def="1420">
+        <metadata name="_width" value="144"/>
+        <metadata name="_height" value="60"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef1425" id="1425" x="-20" y="-285" succ="//@urndef/@specDiagrams.3/@connections.5" pred="//@urndef/@specDiagrams.3/@connections.0 //@urndef/@specDiagrams.3/@connections.1 //@urndef/@specDiagrams.3/@connections.2" def="1424">
+        <metadata name="_width" value="121"/>
+        <metadata name="_height" value="62"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef1429" id="1429" x="616" y="-308" pred="//@urndef/@specDiagrams.3/@connections.5 //@urndef/@specDiagrams.3/@connections.6 //@urndef/@specDiagrams.3/@connections.7 //@urndef/@specDiagrams.3/@connections.29 //@urndef/@specDiagrams.3/@connections.34 //@urndef/@specDiagrams.3/@connections.40" def="1428">
+        <metadata name="_width" value="164"/>
+        <metadata name="_height" value="47"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef1707" id="1707" x="-146" y="-124" succ="//@urndef/@specDiagrams.3/@connections.1" def="69">
+        <metadata name="_width" value="109"/>
+        <metadata name="_height" value="62"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef2497" id="2497" x="-39" y="-103" succ="//@urndef/@specDiagrams.3/@connections.0" def="2194">
+        <metadata name="_width" value="107"/>
+        <metadata name="_height" value="65"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef2840" id="2840" x="1109" y="75" succ="//@urndef/@specDiagrams.3/@connections.11" pred="//@urndef/@specDiagrams.3/@connections.24 //@urndef/@specDiagrams.3/@connections.25 //@urndef/@specDiagrams.3/@connections.28" def="2839">
+        <metadata name="_width" value="105"/>
+        <metadata name="_height" value="62"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef2844" id="2844" x="1367" y="352" succ="//@urndef/@specDiagrams.3/@connections.20" def="95">
+        <metadata name="_width" value="102"/>
+        <metadata name="_height" value="59"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef2848" id="2848" x="1447" y="272" succ="//@urndef/@specDiagrams.3/@connections.21" def="93">
+        <metadata name="_width" value="92"/>
+        <metadata name="_height" value="62"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3052" id="3052" x="-226" y="-199" succ="//@urndef/@specDiagrams.3/@connections.2" def="3041">
+        <metadata name="_width" value="134"/>
+        <metadata name="_height" value="66"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3297" id="3297" x="864" y="325" succ="//@urndef/@specDiagrams.3/@connections.13" def="3298">
+        <metadata name="_width" value="116"/>
+        <metadata name="_height" value="64"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3299" id="3299" x="749" y="322" succ="//@urndef/@specDiagrams.3/@connections.14" def="3145">
+        <metadata name="_width" value="110"/>
+        <metadata name="_height" value="64"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3308" id="3308" x="464" y="21" succ="//@urndef/@specDiagrams.3/@connections.8" pred="//@urndef/@specDiagrams.3/@connections.26 //@urndef/@specDiagrams.3/@connections.41 //@urndef/@specDiagrams.3/@connections.42" def="3307">
+        <metadata name="_width" value="131"/>
+        <metadata name="_height" value="60"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3310" id="3310" x="554" y="366" succ="//@urndef/@specDiagrams.3/@connections.16" def="3309">
+        <metadata name="_width" value="129"/>
+        <metadata name="_height" value="69"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3312" id="3312" x="422" y="369" succ="//@urndef/@specDiagrams.3/@connections.17" def="3311">
+        <metadata name="_width" value="125"/>
+        <metadata name="_height" value="66"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3379" id="3379" x="625" y="67" succ="//@urndef/@specDiagrams.3/@connections.9" pred="//@urndef/@specDiagrams.3/@connections.3 //@urndef/@specDiagrams.3/@connections.4" def="3378">
+        <metadata name="_width" value="121"/>
+        <metadata name="_height" value="83"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3381" id="3381" x="713" y="221" succ="//@urndef/@specDiagrams.3/@connections.3" def="3380">
+        <metadata name="_width" value="116"/>
+        <metadata name="_height" value="61"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3383" id="3383" x="601" y="224" succ="//@urndef/@specDiagrams.3/@connections.4" def="3382">
+        <metadata name="_width" value="110"/>
+        <metadata name="_height" value="67"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3790" id="3790" x="1281" y="-252" succ="//@urndef/@specDiagrams.3/@connections.6" def="3109">
+        <metadata name="_width" value="82"/>
+        <metadata name="_height" value="56"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3792" id="3792" x="1270" y="-45" succ="//@urndef/@specDiagrams.3/@connections.36" def="3111">
+        <metadata name="_width" value="111"/>
+        <metadata name="_height" value="47"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef3963" id="3963" x="611" y="-114" succ="//@urndef/@specDiagrams.3/@connections.7" pred="//@urndef/@specDiagrams.3/@connections.8 //@urndef/@specDiagrams.3/@connections.9 //@urndef/@specDiagrams.3/@connections.10 //@urndef/@specDiagrams.3/@connections.11 //@urndef/@specDiagrams.3/@connections.12 //@urndef/@specDiagrams.3/@connections.15" def="3962">
+        <metadata name="_width" value="172"/>
+        <metadata name="_height" value="56"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5030" id="5030" x="808" y="127" succ="//@urndef/@specDiagrams.3/@connections.15" pred="//@urndef/@specDiagrams.3/@connections.13 //@urndef/@specDiagrams.3/@connections.14" def="5029">
+        <metadata name="_width" value="112"/>
+        <metadata name="_height" value="60"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5047" id="5047" x="903" y="196" succ="//@urndef/@specDiagrams.3/@connections.27" def="5046">
+        <metadata name="_width" value="120"/>
+        <metadata name="_height" value="83"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5054" id="5054" x="283" y="136" succ="//@urndef/@specDiagrams.3/@connections.42" def="5053">
+        <metadata name="_width" value="132"/>
+        <metadata name="_height" value="64"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5056" id="5056" x="1381" y="162" succ="//@urndef/@specDiagrams.3/@connections.28" def="5055">
+        <metadata name="_width" value="99"/>
+        <metadata name="_height" value="60"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5079" id="5079" x="1251" y="191" succ="//@urndef/@specDiagrams.3/@connections.24" pred="//@urndef/@specDiagrams.3/@connections.20 //@urndef/@specDiagrams.3/@connections.21" def="5078">
+        <metadata name="_width" value="97"/>
+        <metadata name="_height" value="60"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5081" id="5081" x="498" y="155" succ="//@urndef/@specDiagrams.3/@connections.26" pred="//@urndef/@specDiagrams.3/@connections.16 //@urndef/@specDiagrams.3/@connections.17" def="5080">
+        <metadata name="_width" value="128"/>
+        <metadata name="_height" value="64"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5083" id="5083" x="1080" y="188" succ="//@urndef/@specDiagrams.3/@connections.22" pred="//@urndef/@specDiagrams.3/@connections.18 //@urndef/@specDiagrams.3/@connections.19" def="5082">
+        <metadata name="_width" value="123"/>
+        <metadata name="_height" value="86"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5363" id="5363" x="972" y="293" succ="//@urndef/@specDiagrams.3/@connections.23" def="5362">
+        <metadata name="_width" value="153"/>
+        <metadata name="_height" value="63"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5377" id="5377" x="329" y="218" succ="//@urndef/@specDiagrams.3/@connections.41" def="5376">
+        <metadata name="_width" value="202"/>
+        <metadata name="_height" value="66"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5379" id="5379" x="1351" y="45" succ="//@urndef/@specDiagrams.3/@connections.25" def="5378">
+        <metadata name="_width" value="119"/>
+        <metadata name="_height" value="84"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5466" id="5466" x="176" y="-237" succ="//@urndef/@specDiagrams.3/@connections.29" pred="//@urndef/@specDiagrams.3/@connections.30 //@urndef/@specDiagrams.3/@connections.31 //@urndef/@specDiagrams.3/@connections.37 //@urndef/@specDiagrams.3/@connections.38 //@urndef/@specDiagrams.3/@connections.39" def="5465">
+        <metadata name="_width" value="121"/>
+        <metadata name="_height" value="51"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5472" id="5472" x="184" y="5" succ="//@urndef/@specDiagrams.3/@connections.33" def="5471">
+        <metadata name="_width" value="112"/>
+        <metadata name="_height" value="65"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5474" id="5474" x="359" y="-207" succ="//@urndef/@specDiagrams.3/@connections.30" def="5473">
+        <metadata name="_width" value="108"/>
+        <metadata name="_height" value="60"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5476" id="5476" x="184" y="-111" succ="//@urndef/@specDiagrams.3/@connections.38" def="5475">
+        <metadata name="_width" value="109"/>
+        <metadata name="_height" value="62"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5478" id="5478" x="305" y="11" succ="//@urndef/@specDiagrams.3/@connections.32" def="5477">
+        <metadata name="_width" value="153"/>
+        <metadata name="_height" value="63"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5482" id="5482" x="57" y="-172" succ="//@urndef/@specDiagrams.3/@connections.39" def="5481">
+        <metadata name="_width" value="100"/>
+        <metadata name="_height" value="63"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5486" id="5486" x="-19" y="-10" succ="//@urndef/@specDiagrams.3/@connections.37" pred="//@urndef/@specDiagrams.3/@connections.45 //@urndef/@specDiagrams.3/@connections.46" def="5485">
+        <metadata name="_width" value="180"/>
+        <metadata name="_height" value="64"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5845" id="5845" x="67" y="150" succ="//@urndef/@specDiagrams.3/@connections.46" def="5826">
+        <metadata name="_width" value="143"/>
+        <metadata name="_height" value="65"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5849" id="5849" x="-112" y="137" succ="//@urndef/@specDiagrams.3/@connections.45" def="5822">
+        <metadata name="_width" value="142"/>
+        <metadata name="_height" value="66"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5915" id="5915" x="300" y="-121" succ="//@urndef/@specDiagrams.3/@connections.31" pred="//@urndef/@specDiagrams.3/@connections.32 //@urndef/@specDiagrams.3/@connections.33" def="5914">
+        <metadata name="_width" value="138"/>
+        <metadata name="_height" value="61"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5982" id="5982" x="1389" y="-63" succ="//@urndef/@specDiagrams.3/@connections.35" def="5782">
+        <metadata name="_width" value="141"/>
+        <metadata name="_height" value="55"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef5986" id="5986" x="1264" y="-171" succ="//@urndef/@specDiagrams.3/@connections.34" pred="//@urndef/@specDiagrams.3/@connections.35 //@urndef/@specDiagrams.3/@connections.36" def="5985">
+        <metadata name="_width" value="120"/>
+        <metadata name="_height" value="73"/>
+      </nodes>
+      <nodes xsi:type="grl:IntentionalElementRef" name="IntentionalElementRef6307" id="6307" x="785" y="-191" succ="//@urndef/@specDiagrams.3/@connections.40" def="6306">
+        <metadata name="_width" value="131"/>
+        <metadata name="_height" value="61"/>
+      </nodes>
+      <connections xsi:type="grl:LinkRef" source="2497" target="1425" link="2500"/>
+      <connections xsi:type="grl:LinkRef" source="1707" target="1425" link="2857"/>
+      <connections xsi:type="grl:LinkRef" source="3052" target="1425" link="3055"/>
+      <connections xsi:type="grl:LinkRef" source="3381" target="3379" link="3389"/>
+      <connections xsi:type="grl:LinkRef" source="3383" target="3379" link="3390"/>
+      <connections xsi:type="grl:LinkRef" source="1425" target="1429" link="3899">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="3790" target="1429" link="3904">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="3963" target="1429" link="3966">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="3308" target="3963" link="3967">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="3379" target="3963" link="3969">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="1421" target="3963" link="3971">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="2840" target="3963" link="3972">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="1409" target="3963" link="3973">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="3297" target="5030" link="5033"/>
+      <connections xsi:type="grl:LinkRef" source="3299" target="5030" link="5034"/>
+      <connections xsi:type="grl:LinkRef" source="5030" target="3963" link="5036">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="3310" target="5081" link="5088"/>
+      <connections xsi:type="grl:LinkRef" source="3312" target="5081" link="5089"/>
+      <connections xsi:type="grl:LinkRef" source="1170" target="5083" link="5094"/>
+      <connections xsi:type="grl:LinkRef" source="888" target="5083" link="5095"/>
+      <connections xsi:type="grl:LinkRef" source="2844" target="5079" link="5099"/>
+      <connections xsi:type="grl:LinkRef" source="2848" target="5079" link="5100"/>
+      <connections xsi:type="grl:LinkRef" source="5083" target="1421" link="5370">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5363" target="1421" link="5374">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5079" target="2840" link="5383">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5379" target="2840" link="5385">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5081" target="3308" link="5387">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5047" target="1421" link="5420">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5056" target="2840" link="5422">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5466" target="1429" link="5469">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5474" target="5466" link="5491">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5915" target="5466" link="5918">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5478" target="5915" link="5924"/>
+      <connections xsi:type="grl:LinkRef" source="5472" target="5915" link="5925"/>
+      <connections xsi:type="grl:LinkRef" source="5986" target="1429" link="5989">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5982" target="5986" link="5991">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="3792" target="5986" link="5992">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5486" target="5466" link="6233">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5476" target="5466" link="6245">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5482" target="5466" link="6257">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="6307" target="1429" link="6310">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5377" target="3308" link="6486">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5054" target="3308" link="6487">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="1103" target="1409" link="6614"/>
+      <connections xsi:type="grl:LinkRef" source="1250" target="1409" link="6615"/>
+      <connections xsi:type="grl:LinkRef" source="5849" target="5486" link="6769">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+      <connections xsi:type="grl:LinkRef" source="5845" target="5486" link="6771">
+        <label deltaX="30" deltaY="-30"/>
+      </connections>
+    </specDiagrams>
+  </urndef>
+  <urnLinks type="Include" fromElem="95" toElem="3298"/>
+  <urnLinks type="Include" fromElem="3167" toElem="3298"/>
+  <urnLinks type="Include" fromElem="3167" toElem="3382"/>
+  <urnLinks type="Include" fromElem="95" toElem="3382"/>
+  <urnLinks type="Exclude" fromElem="3167" toElem="95"/>
+  <urnLinks type="Include" fromElem="5376" toElem="3111"/>
+  <urnLinks type="Include" fromElem="5362" toElem="3111"/>
+  <urnLinks type="Include" fromElem="5378" toElem="3111"/>
+  <urnLinks type="Include" fromElem="5826" toElem="3111"/>
+  <metadata name="_Use0to100EvaluationRange" value="false"/>
+  <metadata name="UrnLinkType" value="Include"/>
+  <metadata name="UrnLinkType" value="Exclude"/>
+  <dynamicContexts name="DynamicContext13" id="13" groups="12"/>
+  <dynamicContextGroups name="DynamicContextGroup12" id="12" contexts="13"/>
+  <timepointGroups/>
+</urn:URNspec>
