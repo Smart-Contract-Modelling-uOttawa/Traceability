@@ -20,13 +20,25 @@ Please follow the instructions below.
 
 ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/OpenXtextProject.png "Open project")
 
+
+# How to use
 - In the `Package Explorer` panel, right click on the `org.xtext.dsl.dxl` directory, then click on `Run as` > `Eclipse Application`
-  
+- In the new opened Eclipse window create a new project ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/MI-DSL/images/Screenshot%202023-01-21%2016.48.08.png).
+- If you create a java project, please do not open the java perspective.
+- ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/MI-DSL/images/Screenshot%202023-01-21%2016.50.06.png)
+- 
+- right click on the 'scr' directory inside this project and create a new file with `.dxldsl` extension. ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/MI-DSL/images/Screenshot%202023-01-21%2016.50.22.png)
 
-#How to use
-- In the new opened Eclipse window create a new project then create a new file with `.dxldsl` extension. 
+- ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/MI-DSL/images/Screenshot%202023-01-21%2016.50.50.png)
+- Click finish. 
+- right click on the new file 'HelloWorld.dxldsl' and select 'Open with' -->'DxlDsl editor'
+- ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/MI-DSL/images/Screenshot%202023-01-21%2016.51.15.png)
+- Now you can write your classes. you can copy the classes in [HelloWorld.dxldsl](HelloWorld.dxlds) and past them in your dxldsl file to test the tool.
+- once you press 'Ctrl+s' to save the file, the DXL library corresponding to your classes will be created and saved in new diarectory, named 'scr-gen/output' as shown in the following image.
+- ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/MI-DSL/images/Screenshot%202023-01-21%2016.52.14.png)
 
-
+# How to import the model in DOORS database
+the generated DXL library should be installed in the ‘<path to DOORS>\lib\dxl\addins’ folder.
 
 
 
