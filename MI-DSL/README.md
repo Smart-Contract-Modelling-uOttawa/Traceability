@@ -33,7 +33,7 @@ Please follow the instructions below.
 - Click finish. 
 - right click on the new file 'HelloWorld.dxldsl' and select 'Open with' -->'DxlDsl editor'
 - ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/MI-DSL/images/Screenshot%202023-01-21%2016.51.15.png)
-- Now you can write your classes. you can copy the classes in [HelloWorld.dxldsl](HelloWorld.dxlds) and past them in your dxldsl file to test the tool.
+- Now you can write your classes. you can copy the classes in [HelloWorld.dxldsl](HelloWorld.dxldsl) and past them in your dxldsl file to test the tool.
 - once you press 'Ctrl+s' to save the file, the DXL library corresponding to your classes will be created and saved in new diarectory, named 'scr-gen/output' as shown in the following image.
 - ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/MI-DSL/images/Screenshot%202023-01-21%2016.52.14.png)
 
