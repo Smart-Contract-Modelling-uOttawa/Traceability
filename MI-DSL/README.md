@@ -27,7 +27,7 @@ Please follow the instructions below.
 - If you create a java project, please do not open the java perspective.
 - ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/MI-DSL/images/Screenshot%202023-01-21%2016.50.06.png)
 - 
-- right click on the 'scr' directory inside this project and create a new file with `.dxldsl` extension. ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/MI-DSL/images/Screenshot%202023-01-21%2016.50.22.png)
+- right click on the `scr` directory inside this project and create a new file with `.dxldsl` extension. ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/MI-DSL/images/Screenshot%202023-01-21%2016.50.22.png)
 
 - ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/MI-DSL/images/Screenshot%202023-01-21%2016.50.50.png)
 - Click finish. 
