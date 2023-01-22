@@ -38,7 +38,7 @@ Please follow the instructions below.
 - ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/MI-DSL/images/Screenshot%202023-01-21%2016.52.14.png)
 
 # How to import the model in DOORS database
-The generated DXL library should be installed in the DOORS location diroctory such as `<path to DOORS>\lib\dxl\addins` folder.
+The generated DXL library should be installed in the DOORS location directory such as `<path to DOORS>\lib\dxl\addins` folder.
 
 
 
