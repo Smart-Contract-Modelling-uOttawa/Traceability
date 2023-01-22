@@ -37,10 +37,7 @@ Please follow the instructions below.
 - once you press 'Ctrl+s' to save the file, the DXL library corresponding to your classes will be created and saved in new diarectories, named 'scr-gen/output' as shown in the following image.
 - ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/MI-DSL/images/Screenshot%202023-01-21%2016.52.14.png)
 
-# How to import the model in DOORS database
-The generated DXL library should be installed in the DOORS location directory such as `<path to DOORS>\lib\dxl\addins` folder.
-
-
-
-# [Tutorial Folder](Tutorial/)
-Contains a tutorial showing how to create classes and create the corresponding DXL library is supplied in [Report(XinyuZhao)](Tutorial/Report(XinyuZhao).pdf) and the related models and results. 
+# How to import the model in DOORS database. [Tutorial Folder](Tutorial/)
+The generated DXL library should be installed in the DOORS directory, `<path to DOORS>\lib\dxl\addins` folder.
+The tutorial shows how to create classes and create the corresponding DXL library. Also, guidelines to write the correct DXL description is supplied in [Report(XinyuZhao)](Tutorial/Report(XinyuZhao).pdf) including the related models and results.
+ 
