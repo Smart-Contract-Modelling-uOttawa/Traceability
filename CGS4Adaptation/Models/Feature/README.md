@@ -1,1 +1,1 @@
-# Feature Model of the smart home case study [SHFeatures.png](SHFeatures.png)
+# Feature Model of the smart home case study [Feature Model](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/CGS4Adaptation/Models/Feature/RuntimeGRL77PLastVersionFeature.pdf)
