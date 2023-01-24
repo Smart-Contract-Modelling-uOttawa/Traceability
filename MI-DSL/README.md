@@ -12,11 +12,13 @@ Please follow the instructions below.
 - Open Eclipse
 - Use `File` > `Open Projets from File System`
 - to select the directory, go to the \MI-DXL\MTDSL_Workspace 
-- Import each of these three cloned directories into the Eclipse workspace as shown in the following figure. 
+- Import each of these three cloned directories into the Eclipse workspace as shown in the following figure.  
 
 1- `org.xtext.dsl.dxl` 
 2- `org.xtext.dsl.dxl.tests`
 3- `org.xtext.dsl.dxl.ui`
+
+- Then, press `Finish`.
 
 ![alt text](https://github.com/Smart-Contract-Modelling-uOttawa/Traceability/blob/main/OpenXtextProject.png "Open project")
 
