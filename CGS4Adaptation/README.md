@@ -12,7 +12,7 @@ We implemented this template to create a DSL descriptions that can be imported b
 - [How to generate report from VTLTemplate](steps.md)
 
 ## 2- [The Generated Report](Report.txt)
-The DXL description was Generated automatically by Cameo System Modeler using the VTLTemplate.txt in the previous step. This report describes all the elements of the diagrams in the selected model, their relationships, and their descriptions. In addition, it keeps the same `Names` and `ID` of these elements to facilitate updating and modifying the models automatically in DOORS using the DXL library instead of creating new database when models change in the modeling tool and we need to import them back into DOORS to keep them aligned.
+The DXL description was Generated automatically by Cameo System Modeler using the VTLTemplate.txt in the previous step. This report describes all the elements of the diagrams in the selected model, their relationships, and their descriptions. In addition, it keeps the same `Names` and `ID` of these elements to facilitate updating and modifying the models automatically in DOORS using the DXL library instead of creating new database each time the descriped models change in the modeling tool and we need to import them back into DOORS to keep them aligned.
 
 ## 3- MT-DSL Classes [MT-DSL-classes.txt](MI_DSL_Classes.txt):
 We used MI-DSL language to define SysML classes. These classes descripe the SysML models and used to create the DXL Library to import SysML models in DOORS tool. 
